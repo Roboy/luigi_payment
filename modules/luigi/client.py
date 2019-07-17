@@ -1,18 +1,24 @@
 import sys
 import rospy
-from Payment.srv import *
+from roboy_cognition_msgs.srv import Payment
 
 def payment_client(price, payment_option):
     try:
+        rospy.logdebug('Waiting for payment service...')
         rospy.wait_for_service('payment')
+        rospy.logdebug('Payment service is ready!')
+
+        rospy.logdebug('Setting payment service proxy...')
         payment = rospy.ServiceProxy('payment', Payment)
+        rospy.logdebug('Payment service proxy is set!')
+        
         resp = payment(price, payment_option)
-        return resp.is_paid
+        return resp.amount_paid#, resp.error_message
     except Exception as e:
-        print('Service call failed:', e)
+        rospy.logerr(str(e))
 
 if __name__ == "__main__":
-    price = int(sys.argv[1])
-    payment_option = int(sys.argv[2])
-    print('Requesting', price)
-    print('Requested payment:', price, 'received payment:', payment_client(price, payment_option))
+    price = 200
+    payment_option = 0
+    rospy.loginfo('Requesting ' + price + ' cents.')
+    rospy.loginfo('Received payment: ' + str(payment_client(price, payment_option)))
