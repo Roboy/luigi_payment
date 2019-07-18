@@ -30,6 +30,8 @@ class CoinCounter(object):
 		try:
 			rospy.loginfo('You have ' + str(MAX_COIN_WAIT_TIME) + ' seconds to insert coins!')
 			
+			starting_time = time()
+
 			# Reset coin_sum for every service call.
 			self.coin_sum = 0
 
@@ -42,12 +44,13 @@ class CoinCounter(object):
 			# Before returning earlier than maximum wait time, wait for stable coin reader.
 			# Otherwise it can return less amount than actually paid.
 			if total_slept_time < MAX_COIN_WAIT_TIME:
-				while time() - self.last_call_time > 1:
+				while time() - self.last_call_time < 1:
 					sleep(1)
 
 					# Do not wait too much.
 					# Otherwise users can bully us.
-					if time() - self.last_call_time > MAX_COIN_WAIT_TIME + 10:
+					# Bullies should lose their money.
+					if time() - starting_time > MAX_COIN_WAIT_TIME + 10:
 						break
 			
 			rospy.logdebug('Payment server returned ' + str(MAX_COIN_WAIT_TIME - total_slept_time) + ' seconds earlier.')
