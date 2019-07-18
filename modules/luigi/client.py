@@ -21,11 +21,12 @@ def payment_client(price, payment_option):
 
 if __name__ == "__main__":
     # Mock values
-    price = 200
+    price = 600
     payment_option = 0
 
     rospy.init_node('payment_client', anonymous=True, log_level=rospy.DEBUG) # Optional
     
-    rospy.loginfo('Requesting ' + price + ' cents.')
-    # Example service call.
-    rospy.loginfo('Received payment: ' + str(payment_client(price, payment_option)))
+    while not rospy.is_shutdown():
+    	rospy.loginfo('Requesting ' + str(price) + ' cents.')
+    	# Example service call.
+    	rospy.loginfo('Received payment: ' + str(payment_client(price, payment_option)))

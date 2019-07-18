@@ -27,13 +27,17 @@ class CoinCounter(object):
 		try:
 			rospy.loginfo('You have ' + str(COIN_WAIT_TIME) + ' seconds to insert coins!')
 			
+			# Reset coin_sum for every service call.
+			self.coin_sum = 0
+
 			# Check paid amount every second.
 			total_slept_time = 0
 			while self.coin_sum < req.price and total_slept_time < COIN_WAIT_TIME:
 				sleep(1)
 				total_slept_time = total_slept_time + 1
 			
-			sleep(1) # Wait 1 more second for coin reader stabilization, otherwise it can return less amount 
+			sleep(1) # Wait 1 more second for coin reader stabilization, otherwise it can return less amount
+
 			return self.coin_sum, ''
 		
 		except Exception as e:
