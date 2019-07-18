@@ -23,7 +23,7 @@ class Client(object):
 if __name__ == '__main__':
     try:
         # Mock value
-        price = 400
+        price = 400 # in cents.
 
         client = Client()
         sleep(5) # Waiting for stable connection.

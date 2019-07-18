@@ -4,8 +4,14 @@ from time import sleep
 from time import time
 import RPi.GPIO as GPIO
 
-COIN_WAIT_TIME = 10 # in seconds
+
+# Every signal takes:
+# 20 ms in fast mode
+# 50 ms in medium mode
+# 100 ms in slow mode
+COIN_WAIT_TIME = 30 # in seconds
 INPUT_PIN = 3
+
 
 class Server(object):
     def __init__(self):
