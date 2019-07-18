@@ -36,6 +36,7 @@ class Server(object):
         #print(self.coin_sum)
     
     def ros_callback(self, data):
+        # Blocking other call until current one is finished.
         if time() - self.ros_call_time < COIN_WAIT_TIME:
             rospy.logdebug('Still waiting ' + str(time() - self.ros_call_time) + ' seconds to pass!')
         else:
@@ -44,6 +45,7 @@ class Server(object):
 	        
 	        price = data.data
 	        
+            # Calculating values for prettier info message.
 	        eur = price // 100
 	        cent = price % 100
 	        
@@ -56,6 +58,7 @@ class Server(object):
             rospy.loginfo(price_notification_str)
 	        rospy.loginfo('You have ' + str(COIN_WAIT_TIME) + ' seconds to insert your coins!')
 	        
+            # Do not send anything until interval is done.
 	        sleep(COIN_WAIT_TIME)
 	        
 	        self.paid_amount_publisher.publish(self.coin_sum)
@@ -67,7 +70,9 @@ if __name__ == '__main__':
         server.set()
 
         rospy.spin()
+    
     except Exception as e:
         rospy.logerr(str(e))
+    
     finally:
         GPIO.cleanup()

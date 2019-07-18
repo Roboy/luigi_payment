@@ -13,12 +13,19 @@ def payment_client(price, payment_option):
         rospy.logdebug('Payment service proxy is set!')
         
         resp = payment(price, payment_option)
-        return resp.amount_paid#, resp.error_message
+        
+        return resp.amount_paid, resp.error_message
+    
     except Exception as e:
         rospy.logerr(str(e))
 
 if __name__ == "__main__":
+    # Mock values
     price = 200
     payment_option = 0
+
+    rospy.init_node('payment_client', anonymous=True, log_level=rospy.DEBUG) # Optional
+    
     rospy.loginfo('Requesting ' + price + ' cents.')
+    # Example service call.
     rospy.loginfo('Received payment: ' + str(payment_client(price, payment_option)))

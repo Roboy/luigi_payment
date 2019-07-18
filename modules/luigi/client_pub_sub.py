@@ -5,9 +5,6 @@ from time import sleep
 
 class Client(object):
     def __init__(self):
-        self.price = 0
-        self.paid_amount = 0
-
         rospy.init_node('payment_client', anonymous=True, log_level=rospy.DEBUG)
         rospy.logdebug('Payment client has initialized!')
 
@@ -18,16 +15,23 @@ class Client(object):
         rospy.logdebug('price_publisher is set!')
 
         self.rate = rospy.Rate(60)
+    
     def ros_callback(self, data):
-        paid_amount = data.data
-        rospy.loginfo(str(paid_amount) + ' cents has been paid!')
+        amount_paid = data.data
+        rospy.loginfo(str(amount_paid) + ' cents has been paid!')
     
 if __name__ == '__main__':
     try:
+        # Mock value
+        price = 400
+
         client = Client()
-        sleep(5)
+        sleep(5) # Waiting for stable connection.
+
+        # Example usage
+        # Loop is for debugging. 
         while not rospy.is_shutdown():
-            client.price_publisher.publish(400)
+            client.price_publisher.publish(price)
             rospy.loginfo('Published price!')
             
             sleep(5)

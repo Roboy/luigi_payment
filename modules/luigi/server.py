@@ -5,27 +5,35 @@ from time import time
 from enum import Enum
 from time import sleep
 
-COIN_WAIT_TIME = 10
+
+COIN_WAIT_TIME = 10 # in seconds
+INPUT_PIN = 3 # Raspberry Pi GPIO pin to read coin counter output.
 
 class PaymentOptions(Enum):
 	COIN = 0
 	PAYPAL = 1
 
+
 class CoinCounter(object):
 	def __init__(self):
 		self.coin_sum = 0
 		self.last_call_time = 0
+	
 	def coin_count_callback(self, channel):
-		self.coin_sum += 10
+		self.coin_sum = self.coin_sum + 10 # Every signal is 10 cents.
 		self.last_call_time = time()
+	
 	def handle_payment(self, req):
 		try:
-			rospy.loginfo('You have ' + str(COIN_WAIT_TIME) + ' seconds to insert your coins!')
+			rospy.loginfo('You have ' + str(COIN_WAIT_TIME) + ' seconds to insert coins!')
 			
+			# Check paid amount every second.
 			total_slept_time = 0
 			while self.coin_sum < req.price and total_slept_time < COIN_WAIT_TIME:
 				sleep(1)
 				total_slept_time = total_slept_time + 1
+			
+			sleep(1) # Wait 1 more second for coin reader stabilization, otherwise it can return less amount 
 			return self.coin_sum, ''
 		
 		except Exception as e:
@@ -33,8 +41,8 @@ class CoinCounter(object):
 
 if __name__ == "__main__":
 	try:
+		# Settings for Raspberry Pi
 		GPIO.setmode(GPIO.BOARD)
-		INPUT_PIN = 3
 		GPIO.setup(INPUT_PIN, GPIO.IN)
 
 		coin_counter = CoinCounter()
