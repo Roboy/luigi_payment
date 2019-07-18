@@ -9,7 +9,7 @@ from time import sleep
 # 20 ms in fast mode
 # 50 ms in medium mode
 # 100 ms in slow mode
-COIN_WAIT_TIME = 30 # in seconds
+MAX_COIN_WAIT_TIME = 30 # in seconds
 INPUT_PIN = 3 # Raspberry Pi GPIO pin to read coin counter output.
 
 class PaymentOptions(Enum):
@@ -28,20 +28,29 @@ class CoinCounter(object):
 	
 	def handle_payment(self, req):
 		try:
-			rospy.loginfo('You have ' + str(COIN_WAIT_TIME) + ' seconds to insert coins!')
+			rospy.loginfo('You have ' + str(MAX_COIN_WAIT_TIME) + ' seconds to insert coins!')
 			
 			# Reset coin_sum for every service call.
 			self.coin_sum = 0
 
 			# Check paid amount every second.
 			total_slept_time = 0
-			while self.coin_sum < req.price and total_slept_time < COIN_WAIT_TIME:
+			while self.coin_sum < req.price and total_slept_time < MAX_COIN_WAIT_TIME:
 				sleep(1)
 				total_slept_time = total_slept_time + 1
 			
-			sleep(1) # Wait 1 more second for coin reader stabilization, otherwise it can return less amount
+			# Before returning earlier than maximum wait time, wait for stable coin reader.
+			# Otherwise it can return less amount than actually paid.
+			if total_slept_time < MAX_COIN_WAIT_TIME:
+				while time() - self.last_call_time > 1:
+					sleep(1)
+
+					# Do not wait too much.
+					# Otherwise users can bully us.
+					if time() - self.last_call_time > MAX_COIN_WAIT_TIME + 10:
+						break
 			
-			rospy.logdebug('Payment server returned ' + str(COIN_WAIT_TIME - total_slept_time) + ' seconds earlier.')
+			rospy.logdebug('Payment server returned ' + str(MAX_COIN_WAIT_TIME - total_slept_time) + ' seconds earlier.')
 			rospy.loginfo('You have paid ' + str(self.coin_sum) + ' cents.')
 			
 			return self.coin_sum, ''
