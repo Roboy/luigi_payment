@@ -40,7 +40,10 @@ class CoinCounter(object):
 				total_slept_time = total_slept_time + 1
 			
 			sleep(1) # Wait 1 more second for coin reader stabilization, otherwise it can return less amount
-
+			
+			rospy.logdebug('Payment server returned ' + str(COIN_WAIT_TIME - total_slept_time) + ' seconds earlier.')
+			rospy.loginfo('You have paid ' + str(self.coin_sum) + ' cents.')
+			
 			return self.coin_sum, ''
 		
 		except Exception as e:
