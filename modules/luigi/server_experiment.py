@@ -1,7 +1,7 @@
 import rospy
 import RPi.GPIO as GPIO
 from roboy_cognition_msgs.srv import Payment
-from enum import Enum
+from enum import IntEnum
 import qrcode
 import base64
 
@@ -12,7 +12,7 @@ import base64
 MAX_COIN_WAIT_TIME = 30 # in seconds
 INPUT_PIN = 3 # Raspberry Pi GPIO pin to read coin counter output.
 
-class PaymentOptions(Enum):
+class PaymentOptions(IntEnum):
 	COIN = 0
 	PAYPAL = 1
 
@@ -86,6 +86,7 @@ def handle_payment(req, coin_counter):
 
 if __name__ == "__main__":
 	try:
+		# Settings for Raspberry Pi
 		GPIO.setmode(GPIO.BOARD)
 		GPIO.setup(INPUT_PIN, GPIO.IN)
 

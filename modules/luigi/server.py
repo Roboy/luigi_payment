@@ -1,7 +1,7 @@
 import rospy
 import RPi.GPIO as GPIO
 from roboy_cognition_msgs.srv import Payment
-from enum import Enum
+from enum import IntEnum
 
 # Every signal takes:
 # 20 ms in fast mode
@@ -10,7 +10,7 @@ from enum import Enum
 MAX_COIN_WAIT_TIME = 30 # in seconds
 INPUT_PIN = 3 # Raspberry Pi GPIO pin to read coin counter output.
 
-class PaymentOptions(Enum):
+class PaymentOptions(IntEnum):
 	COIN = 0
 	PAYPAL = 1
 
