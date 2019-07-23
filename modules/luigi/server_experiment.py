@@ -29,6 +29,8 @@ class CoinCounter(object):
 def handle_payment(req, coin_counter):
 	try:
 		if int(req.payment_option) == PaymentOptions.COIN:
+			rospy.logdebug('Coin has selected for payment.')
+			
 			rospy.loginfo('You have ' + str(MAX_COIN_WAIT_TIME) + ' seconds to insert coins!')
 			
 			starting_time = rospy.get_time()
@@ -58,16 +60,29 @@ def handle_payment(req, coin_counter):
 			rospy.loginfo('You have paid ' + str(coin_counter.coin_sum) + ' cents.')
 			
 			return coin_counter.coin_sum, ''
+		
 		elif int(req.payment_option) == PaymentOptions.PAYPAL:
-			img = qrcode.make('https://www.paypal.me/bilalvural35/' + str(req.price))
+			rospy.logdebug('PayPal has selected for payment.')
+
+			qrcode_text = 'https://www.paypal.me/bilalvural35/' + str(req.price)
+			rospy.logdebug('Creating QRCode with the following link: ' + qrcode_text)
+			
+			img = qrcode.make(qrcode_text)
 			rospy.logdebug('QRCode has generated!')
 			
 			img_str = base64.b64encode(img.tobytes())
 			rospy.logdebug('QRCode has converted to base64!')
+			
 			return 0, ''
+		
+		else:
+			return 0, 'Unknown payment option.'
 	
 	except Exception as e:
-		return coin_counter.coin_sum, str(e)
+		if int(req.payment_option) == PaymentOptions.COIN:
+			return coin_counter.coin_sum, str(e)
+		else:
+			return 0, str(e)
 
 if __name__ == "__main__":
 	try:
