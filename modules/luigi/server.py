@@ -1,9 +1,7 @@
 import rospy
 import RPi.GPIO as GPIO
 from roboy_cognition_msgs.srv import Payment
-from time import time
 from enum import Enum
-from time import sleep
 
 # Every signal takes:
 # 20 ms in fast mode
@@ -24,13 +22,13 @@ class CoinCounter(object):
 	
 	def coin_count_callback(self, channel):
 		self.coin_sum = self.coin_sum + 10 # Every signal is 10 cents.
-		self.last_call_time = time()
+		self.last_call_time = rospy.get_time()
 	
 	def handle_payment(self, req):
 		try:
 			rospy.loginfo('You have ' + str(MAX_COIN_WAIT_TIME) + ' seconds to insert coins!')
 			
-			starting_time = time()
+			starting_time = rospy.get_time()
 
 			# Reset coin_sum for every service call.
 			self.coin_sum = 0
@@ -38,19 +36,19 @@ class CoinCounter(object):
 			# Check paid amount every second.
 			total_slept_time = 0
 			while self.coin_sum < req.price and total_slept_time < MAX_COIN_WAIT_TIME:
-				sleep(1)
+				rospy.sleep(1)
 				total_slept_time = total_slept_time + 1
 			
 			# Before returning earlier than maximum wait time, wait for stable coin reader.
 			# Otherwise it can return less amount than actually paid.
 			if total_slept_time < MAX_COIN_WAIT_TIME:
-				while time() - self.last_call_time < 1:
-					sleep(1)
+				while rospy.get_time() - self.last_call_time < 1:
+					rospy.sleep(1)
 
 					# Do not wait too much.
 					# Otherwise users can bully us.
 					# Bullies should lose their money.
-					if time() - starting_time > MAX_COIN_WAIT_TIME + 10:
+					if rospy.get_time() - starting_time > MAX_COIN_WAIT_TIME + 10:
 						break
 			
 			rospy.logdebug('Payment server returned ' + str(MAX_COIN_WAIT_TIME - total_slept_time) + ' seconds earlier.')
