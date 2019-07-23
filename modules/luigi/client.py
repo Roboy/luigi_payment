@@ -22,7 +22,7 @@ def payment_client(price, payment_option):
 if __name__ == "__main__":
     # Mock values
     price = 600 # in cents
-    payment_option = 0
+    payment_option = 1
 
     rospy.init_node('payment_client', anonymous=True, log_level=rospy.DEBUG) # Optional
     

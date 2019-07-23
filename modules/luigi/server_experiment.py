@@ -64,7 +64,10 @@ def handle_payment(req, coin_counter):
 		elif int(req.payment_option) == PaymentOptions.PAYPAL:
 			rospy.logdebug('PayPal has selected for payment.')
 
-			qrcode_text = 'https://www.paypal.me/bilalvural35/' + str(req.price)
+			price_eur = int(req.price) // 100
+			price_cent = int(req.price) % 100
+			
+			qrcode_text = 'https://www.paypal.me/bilalvural35/' + str(price_eur) + '.' + str(price_cent)
 			rospy.logdebug('Creating QRCode with the following link: ' + qrcode_text)
 			
 			img = qrcode.make(qrcode_text)
