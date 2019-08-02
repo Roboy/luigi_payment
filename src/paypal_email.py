@@ -1,6 +1,7 @@
 import imaplib
 import mailparser
-#import email
+import email
+import re
 
 def get_body(b):
     if b.is_multipart():
@@ -18,7 +19,7 @@ def get_body(b):
     return body
 
 
-email_user = 'vural.bilal@outlook.com'#input('Email: ')
+email_user = 'vural.bilal@outlook.com'
 import getpass
 email_pass = getpass.getpass('Password:')
 
@@ -30,26 +31,23 @@ try:
     typ, data = mail.search(None, '(FROM "service@paypal.de" SUBJECT "You\'ve got money")')
     if typ == 'OK':
         for num in data[0].split():
-            #typ2, data2 = mail.fetch(num, "(UID BODY[TEXT])")
             typ2, data2 = mail.fetch(num, '(RFC822)')
             raw_email = data2[0][1]
+            str_email = mailparser.parse_from_bytes(raw_email)
             
-            new_mail = mailparser.parse_from_bytes(raw_email)
-            if len(new_mail.text_plain) != 0:
-                print(new_mail.text_plain)
-            else:
-                print('Text HTML')
-                #print(len(new_mail.text_html))
-                '''
-                body_str = ''.join(new_mail.text_html)
-                if 'sent you' in body_str:
-                    print(body_str.find('sent you'))
-                    print(body_str)
-                    break
-                '''
-            #break
+            body_str = str_email.text_html[0]
+            name_end_pos = body_str.find('sent you') - 1
+            money_area_end = body_str.find('<', name_end_pos)
+            money_area = body_str[name_end_pos:money_area_end]
+            #print(money_area)
+            if 'EUR' in money_area:
+                money = re.findall(r'\d[,\d]*', money_area)[0].replace(',','.')
+                print(money)
+                
+
 except Exception as e:
     print(e)
+
 finally:
     mail.close()
     mail.logout()
