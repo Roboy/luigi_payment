@@ -103,4 +103,5 @@ venv.bak/
 # mypy
 .mypy_cache/
 
-/src/*.txt
+/src/email.txt
+/src/credentials.txt

@@ -1,23 +1,6 @@
 import imaplib
 import mailparser
-import email
 import re
-
-def get_body(b):
-    if b.is_multipart():
-        for part in b.walk():
-            ctype = part.get_content_type()
-            cdispo = str(part.get('Content-Disposition'))
-
-            # skip any text/plain (txt) attachments
-            if ctype == 'text/plain' and 'attachment' not in cdispo:
-                body = part.get_payload(decode=True)  # decode
-                break
-    # not multipart - i.e. plain text, no attachments, keeping fingers crossed
-    else:
-        body = b.get_payload(decode=True)
-    return body
-
 
 email_user = 'vural.bilal@outlook.com'
 import getpass
@@ -29,6 +12,7 @@ try:
     mail.select()
 
     typ, data = mail.search(None, '(FROM "service@paypal.de" SUBJECT "You\'ve got money")')
+    print(len(data[0].split()))
     if typ == 'OK':
         for num in data[0].split():
             typ2, data2 = mail.fetch(num, '(RFC822)')
@@ -37,6 +21,8 @@ try:
             
             body_str = str_email.text_html[0]
             name_end_pos = body_str.find('sent you') - 1
+            name_start_pos = body_str.find('>', name_end_pos-50, name_end_pos) + 1
+            print(body_str[name_start_pos:name_end_pos])
             money_area_end = body_str.find('<', name_end_pos)
             money_area = body_str[name_end_pos:money_area_end]
             #print(money_area)
