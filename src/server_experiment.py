@@ -7,6 +7,7 @@ import base64
 import imaplib
 import mailparser
 import re
+import sys
 
 
 # Every signal takes:
@@ -77,8 +78,14 @@ class PaypalAccount(object):
 			if ret_val_fetch == 'OK':
 				# Raw e-mail is bytes.
 				raw_email = mail_data[0][1]
-				# From bytes to string.
-				str_email = mailparser.parse_from_bytes(raw_email)
+				
+				# For Python 2: parse string.
+				if sys.version_info[0] < 3:
+					str_email = mailparser.parse_from_string(raw_email)
+				# For Python 3: From bytes to string.
+				else:
+					str_email = mailparser.parse_from_bytes(raw_email)
+				
 				# PayPal e-mails does not contain plain text area.
 				# str_emil.text_plain returns empty.
 				# Thus we are getting HTML form of the e-mail.
@@ -166,7 +173,7 @@ def handle_payment(req, coin_counter, paypal_acc):
 			
 			# Check for payment mails every second.
 			total_slept_time = 0
-			while mail_sum_prev <= paypal_acc.get_num_mail() and total_slept_time < MAX_PAYPAL_WAIT_TIME:
+			while paypal_acc.get_num_mail() <= mail_sum_prev and total_slept_time < MAX_PAYPAL_WAIT_TIME:
 				rospy.sleep(PRICE_CHECK_INTERVAL)
 				total_slept_time = total_slept_time + PRICE_CHECK_INTERVAL
 			
