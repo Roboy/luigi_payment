@@ -182,6 +182,8 @@ def handle_payment(req, coin_counter, paypal_acc):
 				money, msg = paypal_acc.get_last_payment()
 				rospy.loginfo('You have paid ' + str(money) + ' cents.')
 				return money, msg
+			else:
+				return 0, 'No payment.'
 		else:
 			return 0, 'Unknown payment option.'
 	
