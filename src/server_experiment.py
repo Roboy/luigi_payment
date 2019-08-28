@@ -112,7 +112,7 @@ class PaypalAccount(object):
 				else:
 					return 0, sender_name, 'Unknown currency.'
 			else:
-				return 0, , '', 'Internal mail error.'
+				return 0, '', 'Internal mail error.'
 		else:
 			return 0, '', 'Internal mail error.'
 

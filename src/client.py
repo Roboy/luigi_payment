@@ -2,7 +2,7 @@ import sys
 import rospy
 from roboy_cognition_msgs.srv import Payment
 
-def payment_client(price, payment_option):
+def payment_client(price, payment_option, flavors, scoops):
     try:
         rospy.logdebug('Waiting for payment service...')
         rospy.wait_for_service('payment')
@@ -12,7 +12,7 @@ def payment_client(price, payment_option):
         payment = rospy.ServiceProxy('payment', Payment)
         rospy.logdebug('Payment service proxy is set!')
         
-        resp = payment(price, payment_option)
+        resp = payment(price, payment_option, flavors, scoops)
         
         return resp.amount_paid, resp.error_message
     
