@@ -31,6 +31,9 @@ if __name__ == "__main__":
     	
         # Simulating both payment options
         payment_option = (payment_option + 1) % 2
+
+        flavors = ['chocolate', 'vanilla']
+        scoops = [1, 1]
         
         # Example service call.
-    	rospy.loginfo('Received payment: ' + str(payment_client(price, payment_option)))
+    	rospy.loginfo('Received payment: ' + str(payment_client(price, payment_option, flavors, scoops)))

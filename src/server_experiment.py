@@ -108,13 +108,13 @@ class PaypalAccount(object):
 				if 'EUR' in money_area:
 					# Finds both 2 and 0,02
 					money = re.findall(r'\d[,\d]*', money_area)[0].replace(',','.')
-					return float(money), ''
+					return float(money), sender_name, ''
 				else:
-					return 0, 'Unknown currency.'
+					return 0, sender_name, 'Unknown currency.'
 			else:
-				return 0, 'Internal mail error.'
+				return 0, , '', 'Internal mail error.'
 		else:
-			return 0, 'Internal mail error.'
+			return 0, '', 'Internal mail error.'
 
 def handle_payment(req, coin_counter, paypal_acc):
 	try:
@@ -149,7 +149,7 @@ def handle_payment(req, coin_counter, paypal_acc):
 			rospy.logdebug('Payment server returned ' + str(MAX_COIN_WAIT_TIME - total_slept_time) + ' seconds earlier.')
 			rospy.loginfo('You have paid ' + str(coin_counter.coin_sum) + ' cents.')
 			
-			return coin_counter.coin_sum, ''
+			return coin_counter.coin_sum, '', ''
 		
 		elif int(req.payment_option) == PaymentOptions.PAYPAL:
 			rospy.logdebug('PayPal has selected for payment.')
@@ -179,19 +179,19 @@ def handle_payment(req, coin_counter, paypal_acc):
 			
 			# If new payment mail received, return last payment.
 			if paypal_acc.get_num_mail() > mail_sum_prev:
-				money, msg = paypal_acc.get_last_payment()
+				money, sender_name, msg = paypal_acc.get_last_payment()
 				rospy.loginfo('You have paid ' + str(money) + ' cents.')
-				return money, msg
+				return money, sender_name, msg
 			else:
-				return 0, 'No payment.'
+				return 0, '', 'No payment.'
 		else:
-			return 0, 'Unknown payment option.'
+			return 0, '', 'Unknown payment option.'
 	
 	except Exception as e:
 		if int(req.payment_option) == PaymentOptions.COIN:
-			return coin_counter.coin_sum, str(e)
+			return coin_counter.coin_sum, '', str(e)
 		else:
-			return 0, str(e)
+			return 0, '', str(e)
 
 
 if __name__ == "__main__":
