@@ -8,6 +8,7 @@ import imaplib
 import mailparser
 import re
 import sys
+import requests
 
 
 # Every signal takes:
@@ -116,6 +117,20 @@ class PaypalAccount(object):
 		else:
 			return 0, '', 'Internal mail error.'
 
+def show_ads_on_tablet():
+	data['default'] = True
+	requests.post('http://localhost:1880/image', data=data)
+
+def show_order_on_tablet(flavors, scoops, price, payment_option, encoded_img=None):
+	data =  {'flavors': flavors, 'scoops': scoops, 'price': price, 'payment_option': payment_option, 'default': False}
+	
+	if payment_option == PaymentOptions.PAYPAL:
+		files = {'image': encoded_img}
+		requests.post('http://localhost:1880/image', files=files, data=data)
+	
+	elif payment_option == PaymentOptions.COIN:
+		requests.post('http://localhost:1880/image', data=data)
+
 def handle_payment(req, coin_counter, paypal_acc):
 	try:
 		if int(req.payment_option) == PaymentOptions.COIN:
@@ -127,6 +142,9 @@ def handle_payment(req, coin_counter, paypal_acc):
 
 			# Reset coin_sum for every service call.
 			coin_counter.coin_sum = 0
+
+			# Show the order on tablet.
+			show_order_on_tablet(req.flavors, req.scoops, int(req.price), int(req.payment_option))
 
 			# Check paid amount every second.
 			total_slept_time = 0
@@ -149,6 +167,9 @@ def handle_payment(req, coin_counter, paypal_acc):
 			rospy.logdebug('Payment server returned ' + str(MAX_COIN_WAIT_TIME - total_slept_time) + ' seconds earlier.')
 			rospy.loginfo('You have paid ' + str(coin_counter.coin_sum) + ' cents.')
 			
+			# Show advertisement on tablet.
+			show_ads_on_tablet()
+
 			return coin_counter.coin_sum, '', ''
 		
 		elif int(req.payment_option) == PaymentOptions.PAYPAL:
@@ -168,6 +189,9 @@ def handle_payment(req, coin_counter, paypal_acc):
 			img_str = base64.b64encode(img.tobytes())
 			rospy.logdebug('QR Code has converted to base64!')
 
+			# Show the order on tablet.
+			show_order_on_tablet(req.flavors, req.scoops, int(req.price), int(req.payment_option))
+			
 			# Number of mails before payment process.
 			mail_sum_prev = paypal_acc.get_num_mail()
 			
@@ -181,16 +205,32 @@ def handle_payment(req, coin_counter, paypal_acc):
 			if paypal_acc.get_num_mail() > mail_sum_prev:
 				money, sender_name, msg = paypal_acc.get_last_payment()
 				rospy.loginfo('You have paid ' + str(money) + ' cents.')
+				
+				# Show advertisement on tablet.
+				show_ads_on_tablet()
+				
 				return money, sender_name, msg
 			else:
+				# Show advertisement on tablet.
+				show_ads_on_tablet()
+				
 				return 0, '', 'No payment.'
 		else:
+			# Show advertisement on tablet.
+			show_ads_on_tablet()
+
 			return 0, '', 'Unknown payment option.'
 	
 	except Exception as e:
 		if int(req.payment_option) == PaymentOptions.COIN:
+			# Show advertisement on tablet.
+			show_ads_on_tablet()
+
 			return coin_counter.coin_sum, '', str(e)
 		else:
+			# Show advertisement on tablet.
+			show_ads_on_tablet()
+			
 			return 0, '', str(e)
 
 
