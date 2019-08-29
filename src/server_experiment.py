@@ -3,6 +3,7 @@ import RPi.GPIO as GPIO
 from roboy_cognition_msgs.srv import Payment
 from enum import IntEnum
 import qrcode
+from qrcode.image.pure import PymagingImage
 import base64
 import imaplib
 import mailparser
@@ -183,7 +184,7 @@ def handle_payment(req, coin_counter, paypal_acc):
 			qrcode_text = 'https://www.paypal.me/bilalvural35/' + str(price_eur) + '.' + str(price_cent) + 'EUR'
 			rospy.logdebug('Creating QR Code with the following link: ' + qrcode_text)
 			
-			img = qrcode.make(qrcode_text)
+			img = qrcode.make(qrcode_text, image_factory=PymagingImage)
 			rospy.logdebug('QR Code has generated!')
 			
 			img_str = base64.b64encode(img.tobytes())
