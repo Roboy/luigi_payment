@@ -3,13 +3,13 @@ import RPi.GPIO as GPIO
 from roboy_cognition_msgs.srv import Payment
 from enum import IntEnum
 import qrcode
-from qrcode.image.pure import PymagingImage
 import base64
 import imaplib
 import mailparser
 import re
 import sys
 import requests
+import io
 
 
 # Every signal takes:
@@ -119,18 +119,16 @@ class PaypalAccount(object):
 			return 0, '', 'Internal mail error.'
 
 def show_ads_on_tablet():
-	data['default'] = True
+	data = {'default': True}
 	requests.post('http://localhost:1880/image', data=data)
 
 def show_order_on_tablet(flavors, scoops, price, payment_option, encoded_img=None):
-	data =  {'flavors': flavors, 'scoops': scoops, 'price': price, 'payment_option': payment_option, 'default': False}
+	data = {'flavors': flavors, 'scoops': scoops, 'price': price, 'payment_option': payment_option, 'default': False}
 	
 	if payment_option == PaymentOptions.PAYPAL:
-		files = {'image': encoded_img}
-		requests.post('http://localhost:1880/image', files=files, data=data)
+		data['encoded'] = encoded_img
 	
-	elif payment_option == PaymentOptions.COIN:
-		requests.post('http://localhost:1880/image', data=data)
+	requests.post('http://localhost:1880/image', data=data)
 
 def handle_payment(req, coin_counter, paypal_acc):
 	try:
@@ -184,14 +182,20 @@ def handle_payment(req, coin_counter, paypal_acc):
 			qrcode_text = 'https://www.paypal.me/bilalvural35/' + str(price_eur) + '.' + str(price_cent) + 'EUR'
 			rospy.logdebug('Creating QR Code with the following link: ' + qrcode_text)
 			
-			img = qrcode.make(qrcode_text, image_factory=PymagingImage)
+			img = qrcode.make(qrcode_text)
 			rospy.logdebug('QR Code has generated!')
+
+			# Save QR Code image to buffer.
+			buff = io.BytesIO()
+			img.save(buff, 'png')
+
+			# Encode buffered image.
+			encoded_img = base64.b64encode(buff.getvalue()).decode("ascii")
 			
-			img_str = base64.b64encode(img.tobytes())
 			rospy.logdebug('QR Code has converted to base64!')
 
 			# Show the order on tablet.
-			show_order_on_tablet(req.flavors, req.scoops, int(req.price), int(req.payment_option))
+			show_order_on_tablet(req.flavors, req.scoops, int(req.price), int(req.payment_option), encoded_img=encoded_img)
 			
 			# Number of mails before payment process.
 			mail_sum_prev = paypal_acc.get_num_mail()
