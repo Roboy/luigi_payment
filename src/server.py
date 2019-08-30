@@ -62,14 +62,16 @@ class PaypalAccount(object):
 		rospy.logdebug('Successfully initialized e-mail!')
 	
 	def get_num_mail(self):
-		ret_val, mail_ids = self.mail.search(None, '(FROM "service@paypal.de" SUBJECT "You\'ve got money")')
+#		ret_val, mail_ids = self.mail.search(None, '(FROM "service@paypal.de" SUBJECT "You\'ve got money")')
+		ret_val, mail_ids = self.mail.search(None, '(FROM "bilal_v@hotmail.com" SUBJECT "You\'ve got money")')
 		if ret_val == 'OK':
 			return len(mail_ids[0].split())
 		else:
 			return None
 	
 	def get_last_payment(self):
-		ret_val_search, mail_ids = self.mail.search(None, '(FROM "service@paypal.de" SUBJECT "You\'ve got money")')
+#		ret_val_search, mail_ids = self.mail.search(None, '(FROM "service@paypal.de" SUBJECT "You\'ve got money")')
+		ret_val_search, mail_ids = self.mail.search(None, '(FROM "bilal_v@hotmail.com" SUBJECT "You\'ve got money")')
 		
 		if ret_val_search == 'OK':
 			# Getting last e-mail id.
@@ -110,7 +112,8 @@ class PaypalAccount(object):
 				if 'EUR' in money_area:
 					# Finds both 2 and 0,02
 					money = re.findall(r'\d[,\d]*', money_area)[0].replace(',','.')
-					return float(money), sender_name, ''
+					# Money from Euro to Cents
+					return float(money) * 100, sender_name, ''
 				else:
 					return 0, sender_name, 'Unknown currency.'
 			else:

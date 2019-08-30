@@ -14,7 +14,7 @@ def payment_client(price, payment_option, flavors, scoops):
         
         resp = payment(price, payment_option, flavors, scoops)
         
-        return resp.amount_paid, resp.error_message
+        return resp.amount_paid, resp.customer_name, resp.error_message
     
     except Exception as e:
         rospy.logerr(str(e))
