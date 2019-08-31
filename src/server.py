@@ -130,6 +130,9 @@ def show_order_on_tablet(flavors, scoops, price, payment_option, encoded_img=Non
 	
 	if payment_option == PaymentOptions.PAYPAL:
 		data['encoded'] = encoded_img
+		data['timer'] = MAX_PAYPAL_WAIT_TIME
+	elif payment_option == PaymentOptions.COIN:
+		data['timer'] = MAX_COIN_WAIT_TIME
 	
 	requests.post('http://localhost:1880/image', data=data)
 
@@ -264,6 +267,9 @@ if __name__ == "__main__":
 
 		rospy.Service('payment', Payment, handle_payment_lambda)
 		rospy.logdebug('Payment server is set!')
+
+		# Set default view for paymant interface.
+		show_ads_on_tablet()
 		
 		rospy.spin()
 	
