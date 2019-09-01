@@ -8,7 +8,7 @@ In order to run it, first start `roscore` then start `server.py` via `python ser
 	* 1st line should be e-mail address.
 	* 2nd line should be your e-mail password.
 * You can change the following lines in `src/server.py` to fit your needs.
-```bash
+```python
 MAX_COIN_WAIT_TIME = 30 # in seconds
 MAX_PAYPAL_WAIT_TIME = 60 # in secons
 INPUT_PIN = 3 # Raspberry Pi GPIO pin to read coin counter output.
