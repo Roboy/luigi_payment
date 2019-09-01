@@ -105,3 +105,4 @@ venv.bak/
 
 #/src/email.txt
 /src/credentials.txt
+/src/mock_credentials.txt

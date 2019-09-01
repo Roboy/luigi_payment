@@ -1,10 +1,12 @@
 from email.MIMEMultipart import MIMEMultipart
 from email.MIMEText import MIMEText
 
-fromaddr = "bilal_v@hotmail.com"
+with open('mock_credentials.txt', 'r') as f:
+	fromaddr = f.readline().strip()
+	password = f.readline().strip()
+
 #fromaddr = "luigimockup@outlook.com"
 
-#toaddr = "vural.bilal@outlook.com"
 toaddr = "roboyicecream@outlook.com"
 
 msg = MIMEMultipart()
@@ -24,9 +26,8 @@ server.starttls()
 server.ehlo()
 
 import getpass
-password = getpass.getpass()
+#password = getpass.getpass()
 
-#password = "Roboy2016"
 
 server.login(fromaddr, password)
 text = msg.as_string()

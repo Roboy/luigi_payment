@@ -63,7 +63,8 @@ class PaypalAccount(object):
 	
 	def get_num_mail(self):
 #		ret_val, mail_ids = self.mail.search(None, '(FROM "service@paypal.de" SUBJECT "You\'ve got money")')
-		ret_val, mail_ids = self.mail.search(None, '(FROM "bilal_v@hotmail.com" SUBJECT "You\'ve got money")')
+#		ret_val, mail_ids = self.mail.search(None, '(FROM "bilal_v@hotmail.com" SUBJECT "You\'ve got money")')
+		ret_val, mail_ids = self.mail.search(None, '(FROM "luigimockup@outlook.com" SUBJECT "You\'ve got money")')
 		if ret_val == 'OK':
 			return len(mail_ids[0].split())
 		else:
@@ -71,7 +72,8 @@ class PaypalAccount(object):
 	
 	def get_last_payment(self):
 #		ret_val_search, mail_ids = self.mail.search(None, '(FROM "service@paypal.de" SUBJECT "You\'ve got money")')
-		ret_val_search, mail_ids = self.mail.search(None, '(FROM "bilal_v@hotmail.com" SUBJECT "You\'ve got money")')
+#		ret_val_search, mail_ids = self.mail.search(None, '(FROM "bilal_v@hotmail.com" SUBJECT "You\'ve got money")')
+		ret_val_search, mail_ids = self.mail.search(None, '(FROM "luigimockup@outlook.com" SUBJECT "You\'ve got money")')
 		
 		if ret_val_search == 'OK':
 			# Getting last e-mail id.
