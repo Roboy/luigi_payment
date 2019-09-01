@@ -21,6 +21,7 @@ MAX_PAYPAL_WAIT_TIME = 60 # in secons
 INPUT_PIN = 3 # Raspberry Pi GPIO pin to read coin counter output.
 EXTRA_WAITING_TIME = 10 # in seconds
 PRICE_CHECK_INTERVAL = 1 # in seconds
+PAYPAL_ME_URL = 'https://www.paypal.me/bilalvural35/'
 
 
 class PaymentOptions(IntEnum):
@@ -187,7 +188,7 @@ def handle_payment(req, coin_counter, paypal_acc):
 			price_eur = int(req.price) // 100
 			price_cent = int(req.price) % 100
 			
-			qrcode_text = 'https://www.paypal.me/bilalvural35/' + str(price_eur) + '.' + str(price_cent) + 'EUR'
+			qrcode_text = PAYPAL_ME_URL + str(price_eur) + '.' + str(price_cent) + 'EUR'
 			rospy.logdebug('Creating QR Code with the following link: ' + qrcode_text)
 			
 			img = qrcode.make(qrcode_text)
