@@ -66,11 +66,9 @@ class PaypalAccount(object):
 		rospy.logdebug('Successfully initialized e-mail!')
 	
 	def get_num_mail(self):
-#		ret_val, mail_ids = self.mail.search(None, '(FROM "service@paypal.de" SUBJECT "You\'ve got money")')
-#		ret_val, mail_ids = self.mail.search(None, '(FROM "icecream@roboy.org@outlook.com" SUBJECT "You\'ve got money")')
-
 		if PAYPAL_LANGUAGE == 'DE':
 			ret_val, mail_ids = self.mail.search(None, '(FROM "service@paypal.de" SUBJECT "Sie haben Geld erhalten")')
+#			ret_val, mail_ids = self.mail.search(None, '(FROM "luigimockup@outlook.com" SUBJECT "Sie haben Geld erhalten")')
 		elif PAYPAL_LANGUAGE == 'EN':
 			ret_val, mail_ids = self.mail.search(None, '(FROM "service@paypal.de" SUBJECT "You\'ve got money")')
 
@@ -80,31 +78,27 @@ class PaypalAccount(object):
 			return None
 	
 	def get_last_payment(self):
-#		ret_val_search, mail_ids = self.mail.search(None, '(FROM "service@paypal.de" SUBJECT "You\'ve got money")')
-#		ret_val_search, mail_ids = self.mail.search(None, '(FROM "icecream@roboy.org@outlook.com" SUBJECT "You\'ve got money")')
-
 		if PAYPAL_LANGUAGE == 'DE':
 			ret_val_search, mail_ids = self.mail.search(None, '(FROM "service@paypal.de" SUBJECT "Sie haben Geld erhalten")')
+#			ret_val_search, mail_ids = self.mail.search(None, '(FROM "luigimockup@outlook.com" SUBJECT "Sie haben Geld erhalten")')
 		elif PAYPAL_LANGUAGE == 'EN':
 			ret_val_search, mail_ids = self.mail.search(None, '(FROM "service@paypal.de" SUBJECT "You\'ve got money")')
-		
+
 		if ret_val_search == 'OK':
 			# Getting last e-mail id.
 			last_mail_id = mail_ids[0].split()[-1]
+			
 			# Getting data of the last e-mail.
 			ret_val_fetch, mail_data = self.mail.fetch(last_mail_id, '(RFC822)')
-
 			if ret_val_fetch == 'OK':
 				# Raw e-mail is bytes.
 				raw_email = mail_data[0][1]
-				
 				# For Python 2: parse string.
 				if sys.version_info[0] < 3:
 					str_email = mailparser.parse_from_string(raw_email)
 				# For Python 3: From bytes to string.
 				else:
 					str_email = mailparser.parse_from_bytes(raw_email)
-				
 				# PayPal e-mails does not contain plain text area.
 				# str_emil.text_plain returns empty.
 				# Thus we are getting HTML form of the e-mail.
