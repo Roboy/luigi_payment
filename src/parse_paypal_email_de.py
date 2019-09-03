@@ -46,6 +46,8 @@ try:
             if 'EUR' in money_area:
                 money = re.findall(r'\d[,\d]*', money_area)[0].replace(',','.')
                 print(money)
+        with open('email.txt', 'w') as fp:
+            fp.write(body_str)
                 
 
 except Exception as e:

@@ -1,7 +1,7 @@
-<html><head>
+<html><head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
    		<meta name="viewport" content="initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,width=device-width,height=device-height,target-densitydpi=device-dpi,user-scalable=no">
-        <title>You've got money</title><!-- Noto Sans Google Font --><link href="https://fonts.googleapis.com/css?family=Noto&#43;Sans:400,400italic,700,700italic&amp;subset=latin,greek,greek-ext,devanagari,vietnamese,cyrillic-ext,latin-ext,cyrillic" rel="stylesheet" type="text/css">
+        <title>Sie haben Geld erhalten</title><!-- Noto Sans Google Font --><link href="https://fonts.googleapis.com/css?family=Noto&#43;Sans:400,400italic,700,700italic&amp;subset=latin,greek,greek-ext,devanagari,vietnamese,cyrillic-ext,latin-ext,cyrillic" rel="stylesheet" type="text/css">
 		<style type="text/css">
 			<!-- Begin Styles -->
 /* PP Sans Font Import */
@@ -186,7 +186,7 @@ body {
    <body style="padding:0; margin:0; background:#f2f2f2;">  
  <div style="display:none; display:none !important; color:#fff; font-size:1pt;"></div>	<!-- Preheader --> 
 <span style="display:none !important; font-size:0px; line-height:0px; color:#ffffff;">
-	Bilal Vural, you've received&nbsp;2&nbsp;EUR
+	Devanthro UG – Sie haben 0,01&nbsp;EUR erhalten
 </span> 
 <!-- end Preheader --><!-- CONTAINER -->
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="marginFix">
@@ -202,9 +202,7 @@ body {
           <td align="center" width="600"><table width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#f5f5f5">
               <tr> 
                 <!-- copy 14px/18px -->
-                <td align="center" style="font-family:Calibri, Trebuchet, Arial, sans serif; font-size:14px; line-height:18px;color:#777777;padding:20px" class="ppsans"><p>
-          		Hello,&nbsp;Bilal Vural.
-          	</p></td>
+                <td align="center" style="font-family:Calibri, Trebuchet, Arial, sans serif; font-size:14px; line-height:18px;color:#777777;padding:20px" class="ppsans"><p> Guten Tag Devanthro UG! </p></td>
                 <!-- end copy --> 
               </tr>
             </table>
@@ -288,7 +286,7 @@ body {
                       <table width="100%" cellpadding="0" cellspacing="0" border="0">
                           <tr> 
                             <!-- primary headline 36/44 -->
-                            <td align="center" valign="top" style="font-family:Calibri, Trebuchet, Arial, sans serif; font-size:36px; line-height:44px; color:#333333;" class="ppsans"><div id="d625686f-45af-88e0-f734-7bfa380c13a7"><div style="display:block;" id="b10ffe2b-637b-8ec5-f884-f0ae3be7e5ea">Bilal Vural sent you 2&nbsp;EUR.</div></div></td>
+                            <td align="center" valign="top" style="font-family:Calibri, Trebuchet, Arial, sans serif; font-size:36px; line-height:44px; color:#333333;" class="ppsans"><div id="d625686f-45af-88e0-f734-7bfa380c13a7"><div id="b10ffe2b-637b-8ec5-f884-f0ae3be7e5ea" style="display:block;">Bilal Vural hat Ihnen 0,01&nbsp;EUR gesendet.</div></div></td>
                             <!-- end primary headline --> 
                           </tr>
                         </table></td>
@@ -302,8 +300,7 @@ body {
                       <table width="100%" border="0" cellspacing="0" cellpadding="0">
                           <tr> 
                             <!-- sub header 19/24 -->
-                                <td align="center" style="vertical-align: top; padding: 0px 0px 0px 0px; font-family:Calibri, Trebuchet, Arial, sans serif; font-size:19px; line-height:24px; color:#777777;" class="ppsans"><div id="68a85347-4646-0e14-9086-d56201875770"></div><br>  
-                                </td>
+                                <td align="center" style="vertical-align: top; padding: 0px 0px 0px 0px; font-family:Calibri, Trebuchet, Arial, sans serif; font-size:19px; line-height:24px; color:#777777;" class="ppsans"><div id="68a85347-4646-0e14-9086-d56201875770"></div><br> </td>
                             <!-- end primary headline --> 
                           </tr>
                         </table></td>
@@ -320,7 +317,7 @@ body {
                       <table width="100%" border="0" cellspacing="0" cellpadding="0">
                           <tr> 
                             <!-- sub header 19/24 -->
-                                <td align="center" style="vertical-align: top; padding: 0px 0px 0px 0px; font-family:Calibri, Trebuchet, Arial, sans serif; font-size:19px; line-height:24px; color:#009cde;" class="ppsans">Transaction Details</td>
+                                <td align="center" style="vertical-align: top; padding: 0px 0px 0px 0px; font-family:Calibri, Trebuchet, Arial, sans serif; font-size:19px; line-height:24px; color:#009cde;" class="ppsans">Transaktionsdetails</td>
                             <!-- end primary headline --> 
                           </tr>
                         </table></td>
@@ -337,10 +334,10 @@ body {
 						<table width="100%" align="left" cellpadding="0" cellspacing="0" border="0" class="stackTbl">
                           <tr> 
                             <!-- details copy 13/22 -->
-                            <td valign="top" style="font-family:Calibri, Trebuchet, Arial, sans serif; font-size:13px; line-height:18px; color:#777777;" class="ppsans ">Transaction ID<span style="color: rgb(119, 119, 119); font-family: pp-sans-big-light, " NotoSans?,Calibri,Trebuchet,Arial,?sansserif?;line-height:18px;?="">:&nbsp;</span>7A861346FM881053G</td>
+                            <td valign="top" style="font-family:Calibri, Trebuchet, Arial, sans serif; font-size:13px; line-height:18px; color:#777777;" class="ppsans ">Transaction ID:&nbsp;1K73262154837504K</td>
                             <!-- end details copy --> 
                                 <!-- details copy 13/22 -->
-                            <td width="30%" align="right" valign="top" style="font-family:Calibri, Trebuchet, Arial, sans serif; font-size:13px; line-height:18px; color:#777777; padding-left:10px" class="ppsans padding0">2 August 2019</td>
+                            <td width="30%" align="right" valign="top" style="font-family:Calibri, Trebuchet, Arial, sans serif; font-size:13px; line-height:18px; color:#777777; padding-left:10px" class="ppsans padding0">3. September 2019</td>
                             <!-- end details copy --> 
 
                           </tr>
@@ -375,7 +372,7 @@ body {
 						<table align="left" cellpadding="0" cellspacing="0" border="0" class="stackTbl">
                           <tr> 
                             <!-- details copy 20/22 -->
-                            <td valign="top" style="font-family:Calibri, Trebuchet, Arial, sans serif; font-size:20px; line-height:22px; color:#444444;" class="ppsans">&nbsp; Amount received&nbsp;</td>
+                            <td valign="top" style="font-family:Calibri, Trebuchet, Arial, sans serif; font-size:20px; line-height:22px; color:#444444;" class="ppsans">Erhaltener Betrag</td>
                             <!-- end details copy --> 
                           </tr>
                         </table>
@@ -384,11 +381,68 @@ body {
                         <table align="right" cellpadding="0" cellspacing="0" border="0" class="stackTbl">
                           <tr> 
                             <!-- money total 20/22 -->
-                            <td align="right" valign="top" style="font-family:Calibri, Trebuchet, Arial, sans serif; font-size:20px; line-height:22px; color:#333333;" class="ppsans"><!--  topPadding10 -->2&nbsp;EUR</td>
+                            <td align="right" valign="top" style="font-family:Calibri, Trebuchet, Arial, sans serif; font-size:20px; line-height:22px; color:#333333;" class="ppsans"><!--  topPadding10 -->0,01&nbsp;EUR</td>
                             <!-- end money total --> 
                           </tr>
                         </table>
                      </td>
+		          </tr>
+		        </tbody>
+		    </table><table width="100%" cellspacing="0" cellpadding="0" border="0">
+				<tbody>
+		          <tr>
+					<td align="center" style="padding:30px 0px 30px 0px;">
+                        <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                          <tr> 
+                            <!-- solid line -->
+                            <td align="center" valign="top" style="font-size:0px; line-height:0px; border-bottom:1px solid #d6d6d6;">&nbsp;</td>
+                            <!-- end solid line --> 
+                          </tr>
+                        </table>
+                    </td>
+		          </tr>
+		        </tbody>
+		    </table><table width="100%" cellspacing="0" cellpadding="0" border="0">
+				<tbody>
+		          <tr>
+						<td align="center" style="padding:0px 0px 0px 0px;">
+                        <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                          <tr> 
+                            <!-- money subtotal 17/22 -->
+                            	<td align="right" valign="top" style="font-family:Calibri, Trebuchet, Arial, sans serif; font-size:17px; line-height:22px; color:#333333;" class="ppsans textAlignLeft">Gebühr</td>
+                            <!-- end money subtotal --> 
+                            <!-- money subtotal 17/22 -->
+                            	<!-- money total 17/22 -->
+                            	<td width="30%" align="right" valign="top" style="font-family:Calibri, Trebuchet, Arial, sans serif; font-size:17px; line-height:22px; color:#333333; padding-left:30px;" class="ppsans autoWidth">&nbsp;0,01&nbsp;EUR</td>
+                            <!-- end money --> 
+                          </tr>
+                        </table>
+                   </td>
+		          </tr>
+		        </tbody>
+		    </table><table width="100%" cellspacing="0" cellpadding="0" border="0">
+				<tbody>
+		          <tr>
+					<td align="center" style="padding:0px 0px 30px 0px;"><table width="100%" cellspacing="0" cellpadding="0" border="0">
+				<tbody>
+		          <tr>
+					<td bgcolor="#f5f5f5" align="center" style="padding:30px 0px 20px 0px;">
+                        <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                          <!-- money total / row 1 -->
+                          <tr> 
+                            <!-- money total 17/24 -->
+                            <td align="right" valign="top" style="font-family:Calibri, Trebuchet, Arial, sans serif; font-size:17px; line-height:24px; color:#333333; padding-bottom:10px;" class="ppsans textAlignLeft"><span style="font-weight:bold">Summe</span></td>
+                            <!-- end money total --> 
+                            <!-- money total 22/24 -->
+                            <td width="40%" align="right" valign="top" style="font-family:Calibri, Trebuchet, Arial, sans serif; font-size:22px; line-height:24px; color:#333333; padding-left:30px; padding-bottom:10px;" class="ppsans autoWidth"><span style="font-weight:bold">0,00&nbsp;EUR</span></td>
+                            <!-- end money total --> 
+                          </tr>
+                          <!-- end money total / row 1 --> 
+                        </table>
+                   </td>
+		          </tr>
+		        </tbody>
+		    </table></td>
 		          </tr>
 		        </tbody>
 		    </table></td>
@@ -417,6 +471,48 @@ body {
                     </tr>
                     <!-- end dotted line separator --> 
 		        </tbody>
+		    </table><!-- Table Section Mulit-row DPH content -->
+                  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+						<td align="center" style="padding:20px 30px 20px 30px;">
+                      	<table width="100%" cellpadding="0" cellspacing="0" border="0">
+                          <tr> 
+                            <!-- sub header 19/24 -->
+                            <td style="vertical-align: top; font-family:Calibri, Trebuchet, Arial, sans serif; font-size:19px; line-height:24px; color:#009cde;" class="ppsans">Lieferadresse</td>
+                            <!-- end subheader --> 
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <!-- end section subheadline --> 
+                    <!-- shipping address / adjust padding below to control spacing -->
+                    <tr>
+						<td align="center" style="padding:0px 30px 30px 30px;">
+                      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                          <tr> 
+                            <!-- body copy 17/22 -->
+                            <td valign="top" style="font-family:Calibri, Trebuchet, Arial, sans serif; font-size:17px; line-height:22px; color:#333333;" class="ppsans">
+                              <div class="decorateGriffinReturnedAddress">Am Schäferanger 9/007</div><div class="decorateGriffinReturnedAddress">85764 München</div><div>Deutschland</div></td>
+                            <!-- end body copy --> 
+                          </tr>
+                        </table></td>
+                    </tr>
+                    <!-- end shipping address -->
+                  </table>
+                  <!--end Table Section Mulit-row DPH content --><table width="100%" cellspacing="0" cellpadding="0" border="0">
+				<tbody>
+		          <tr>
+					<td align="center" style="padding:30px 30px 30px 30px;">
+                        <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                          <tr> 
+                            <!-- solid line -->
+                            <td align="center" valign="top" style="font-size:0px; line-height:0px; border-bottom:1px solid #d6d6d6;">&nbsp;</td>
+                            <!-- end solid line --> 
+                          </tr>
+                        </table>
+                    </td>
+		          </tr>
+		        </tbody>
 		    </table><table width="100%" cellspacing="0" cellpadding="0" border="0">
 			<tbody>
 				<tr>
@@ -425,7 +521,7 @@ body {
                           <tr> 
                             <!-- body copy 17/22 -->
                             <!-- Commenting attribute align=left from below td, default is left aligned and it causing rendering issue when the request is for RTL -->
-                            	<td valign="top" style="font-family:Calibri, Trebuchet, Arial, sans serif; font-size:17px; line-height:22px; color:#333333;" class="ppsans">Don't see the money in your account?<br>Don't worry. Sometimes it takes a few minutes for it to show up.</td>
+                            	<td valign="top" style="font-family:Calibri, Trebuchet, Arial, sans serif; font-size:17px; line-height:22px; color:#333333;" class="ppsans">Sie sehen das Geld in Ihrem Konto nicht?<br>Keine Sorge. Manchmal dauert das einige Minuten.</td>
                             <!-- end body copy --> 
                           </tr>
                         </table>
@@ -439,7 +535,7 @@ body {
                         <table border="0" cellspacing="0" cellpadding="0" class="stackTbl" style="color:#ffffff !important;">
                           <tr> 
                             <!-- CTA text 17/21 -->
-                            <td bgcolor="#0070BA" align="center" valign="middle" style="padding:13px 90px 13px 90px; display: block; color:#ffffff !important; text-decoration:none; white-space: nowrap;  -webkit-print-color-adjust: exact; display: block; font-family:Calibri, Trebuchet, Arial, sans serif; font-size:17px; line-height:21px; color:#ffffff !important;border-radius:25px;" class="ppsans mobilePadding9"><a type="Link" target="_blank" linkId="47514540dd52d6fdbcc353acb2b36b3f" style="text-decoration:none;color:#ffffff !important; white-space: nowrap;" href="https://www.paypal.com/myaccount/transaction/details/7A861346FM881053G?utm_source=unp&amp;utm_medium=email&amp;utm_campaign=PPC000955&amp;utm_unptid=474d7784-b51f-11e9-86d4-441ea14e5834&amp;ppid=PPC000955&amp;cnac=DE&amp;rsta=en_DE&amp;cust=247L5XAP8JM2C&amp;unptid=474d7784-b51f-11e9-86d4-441ea14e5834&amp;calc=cf2021c97a7bd&amp;unp_tpcid=sendmoney-receiver&amp;page=main:email:PPC000955:::&amp;pgrp=main:email&amp;e=cl&amp;mchn=em&amp;s=ci&amp;mail=sys">Get the Details</a></td>
+                            <td bgcolor="#0070BA" align="center" valign="middle" style="padding:13px 90px 13px 90px; display: block; color:#ffffff !important; text-decoration:none; white-space: nowrap;  -webkit-print-color-adjust: exact; display: block; font-family:Calibri, Trebuchet, Arial, sans serif; font-size:17px; line-height:21px; color:#ffffff !important;border-radius:25px;" class="ppsans mobilePadding9"><a type="Link" target="_blank" linkId="47514540dd52d6fdbcc353acb2b36b3f" style="text-decoration:none;color:#ffffff !important; white-space: nowrap;" href="https://www.paypal.com/myaccount/transaction/details/1K73262154837504K?utm_source=unp&amp;utm_medium=email&amp;utm_campaign=PPC000955&amp;utm_unptid=836ac6f6-ce6d-11e9-aa9c-441ea14dde40&amp;ppid=PPC000955&amp;cnac=DE&amp;rsta=de_DE&amp;cust=TRYBX9R6JRUMN&amp;unptid=836ac6f6-ce6d-11e9-aa9c-441ea14dde40&amp;calc=465f8da8479f&amp;unp_tpcid=sendmoney-receiver&amp;page=main:email:PPC000955:::&amp;pgrp=main:email&amp;e=cl&amp;mchn=em&amp;s=ci&amp;mail=sys">Zu den Details</a></td>
                             <!-- end CTA text --></tr>
                         </table>
                   </td>
@@ -467,7 +563,8 @@ body {
                           <tr> 
                             <!-- body copy 17/22 -->
                             <!-- Commenting attribute align=center from below td, default is left aligned and it causing rendering issue when the request is for RTL -->
-                            	<td align="center" valign="top" style="font-family:Calibri, Trebuchet, Arial, sans serif; font-size:17px; line-height:22px; color:#333333;" class="ppsans">How likely are you to recommend PayPal<br>based on your recent experience with receiving money?</td>
+                            	<td align="center" valign="top" style="font-family:Calibri, Trebuchet, Arial, sans serif; font-size:17px; line-height:22px; color:#333333;" class="ppsans">Wie wahrscheinlich ist es, dass Sie PayPal nach Ihrer letzten <br>Erfahrung mit dem Empfangen von Geld weiterempfehlen?  
+&nbsp;</td>
                             <!-- end body copy --> 
                           </tr>
                         </table>
@@ -482,7 +579,7 @@ body {
                           <tr> 
                             <!-- body copy 17/22 -->
                             <!-- Commenting attribute align=center from below td, default is left aligned and it causing rendering issue when the request is for RTL -->
-                            	<td align="center" valign="top" style="font-family:Calibri, Trebuchet, Arial, sans serif; font-size:17px; line-height:22px; color:#333333;" class="ppsans"><div id="bba7255e-42e2-4485-f6bb-e2dfc15c1121"><a href="https://www.paypal-customerfeedback.com/paypal-product-survey?exp=with%20receiving%20money&amp;lng=en_US&amp;ctry=DE&amp;link_id=PPC000955_P2P_receivemoneyFF&amp;trxn=7A861346FM881053G&amp;utm_source=unp&amp;utm_medium=email&amp;utm_campaign=PPC000955&amp;utm_unptid=474d7784-b51f-11e9-86d4-441ea14e5834&amp;ppid=PPC000955&amp;cnac=DE&amp;rsta=en_DE&amp;cust=247L5XAP8JM2C&amp;unptid=474d7784-b51f-11e9-86d4-441ea14e5834&amp;calc=cf2021c97a7bd&amp;unp_tpcid=sendmoney-receiver&amp;page=main:email:PPC000955:::&amp;pgrp=main:email&amp;e=cl&amp;mchn=em&amp;s=ci&amp;mail=sys" isLinkToBeTracked="True" style="text-decoration: none;" target="_BLANK">Rate us now &gt;</a></div></td>
+                            	<td align="center" valign="top" style="font-family:Calibri, Trebuchet, Arial, sans serif; font-size:17px; line-height:22px; color:#333333;" class="ppsans"><div id="1e116474-2c3b-e038-6eac-0828407d540a"><a href="https://www.paypal-customerfeedback.com/paypal-product-survey?exp=mit%20dem%20Empfangen%20von%20Geld&amp;lng=de&amp;ctry=DE&amp;link_id=PPC000955_P2P_receivemoneyGS&amp;trxn=1K73262154837504K&amp;utm_source=unp&amp;utm_medium=email&amp;utm_campaign=PPC000955&amp;utm_unptid=836ac6f6-ce6d-11e9-aa9c-441ea14dde40&amp;ppid=PPC000955&amp;cnac=DE&amp;rsta=de_DE&amp;cust=TRYBX9R6JRUMN&amp;unptid=836ac6f6-ce6d-11e9-aa9c-441ea14dde40&amp;calc=465f8da8479f&amp;unp_tpcid=sendmoney-receiver&amp;page=main:email:PPC000955:::&amp;pgrp=main:email&amp;e=cl&amp;mchn=em&amp;s=ci&amp;mail=sys" isLinkToBeTracked="True" style="text-decoration: none;" target="_BLANK">Bewerten Sie uns jetzt &gt;</a></div></td>
                             <!-- end body copy --> 
                           </tr>
                         </table>
@@ -527,9 +624,9 @@ body {
                   <table width="100%" cellpadding="0" cellspacing="0" border="0">
                     <tr> 
                       <!-- copy 14px/18px -->
-                      <td align="center" style="font-family:Calibri, Trebuchet, Arial, sans serif; font-size:15px; line-height:22px;color:#444444;padding:20px" class="ppsans"><a href="https://www.paypal.com/selfhelp/home?utm_source=unp&amp;utm_medium=email&amp;utm_campaign=PPC000955&amp;utm_unptid=474d7784-b51f-11e9-86d4-441ea14e5834&amp;ppid=PPC000955&amp;cnac=DE&amp;rsta=en_DE&amp;cust=247L5XAP8JM2C&amp;unptid=474d7784-b51f-11e9-86d4-441ea14e5834&amp;calc=cf2021c97a7bd&amp;unp_tpcid=sendmoney-receiver&amp;page=main:email:PPC000955:::&amp;pgrp=main:email&amp;e=cl&amp;mchn=em&amp;s=ci&amp;mail=sys" target="_blank" style="color:#0070ba; text-decoration:none;" alt="Help &amp; Contact">Help &amp; Contact</a> &nbsp;|&nbsp;
-	                      	<a href="https://www.paypal.com/de/webapps/mpp/paypal-safety-and-security?utm_source=unp&amp;utm_medium=email&amp;utm_campaign=PPC000955&amp;utm_unptid=474d7784-b51f-11e9-86d4-441ea14e5834&amp;ppid=PPC000955&amp;cnac=DE&amp;rsta=en_DE&amp;cust=247L5XAP8JM2C&amp;unptid=474d7784-b51f-11e9-86d4-441ea14e5834&amp;calc=cf2021c97a7bd&amp;unp_tpcid=sendmoney-receiver&amp;page=main:email:PPC000955:::&amp;pgrp=main:email&amp;e=cl&amp;mchn=em&amp;s=ci&amp;mail=sys" target="_blank" style="color:#0070ba; text-decoration:none;" alt="Security">Security</a> &nbsp;|&nbsp; 
-	                      	<a href="https://www.paypal.com/de/webapps/mpp/mobile-apps?utm_source=unp&amp;utm_medium=email&amp;utm_campaign=PPC000955&amp;utm_unptid=474d7784-b51f-11e9-86d4-441ea14e5834&amp;ppid=PPC000955&amp;cnac=DE&amp;rsta=en_DE&amp;cust=247L5XAP8JM2C&amp;unptid=474d7784-b51f-11e9-86d4-441ea14e5834&amp;calc=cf2021c97a7bd&amp;unp_tpcid=sendmoney-receiver&amp;page=main:email:PPC000955:::&amp;pgrp=main:email&amp;e=cl&amp;mchn=em&amp;s=ci&amp;mail=sys" target="_blank" style="color:#0070ba; text-decoration:none;" alt="Apps">Apps</a></td><!-- end copy --> 
+                      <td align="center" style="font-family:Calibri, Trebuchet, Arial, sans serif; font-size:15px; line-height:22px;color:#444444;padding:20px" class="ppsans"><a href="https://www.paypal.com/selfhelp/home?utm_source=unp&amp;utm_medium=email&amp;utm_campaign=PPC000955&amp;utm_unptid=836ac6f6-ce6d-11e9-aa9c-441ea14dde40&amp;ppid=PPC000955&amp;cnac=DE&amp;rsta=de_DE&amp;cust=TRYBX9R6JRUMN&amp;unptid=836ac6f6-ce6d-11e9-aa9c-441ea14dde40&amp;calc=465f8da8479f&amp;unp_tpcid=sendmoney-receiver&amp;page=main:email:PPC000955:::&amp;pgrp=main:email&amp;e=cl&amp;mchn=em&amp;s=ci&amp;mail=sys" target="_blank" style="color:#0070ba; text-decoration:none;" alt="Hilfe &amp; Kontakt">Hilfe &amp; Kontakt</a> &nbsp;|&nbsp;
+	                      	<a href="https://www.paypal.com/de/webapps/mpp/paypal-safety-and-security?utm_source=unp&amp;utm_medium=email&amp;utm_campaign=PPC000955&amp;utm_unptid=836ac6f6-ce6d-11e9-aa9c-441ea14dde40&amp;ppid=PPC000955&amp;cnac=DE&amp;rsta=de_DE&amp;cust=TRYBX9R6JRUMN&amp;unptid=836ac6f6-ce6d-11e9-aa9c-441ea14dde40&amp;calc=465f8da8479f&amp;unp_tpcid=sendmoney-receiver&amp;page=main:email:PPC000955:::&amp;pgrp=main:email&amp;e=cl&amp;mchn=em&amp;s=ci&amp;mail=sys" target="_blank" style="color:#0070ba; text-decoration:none;" alt="Sicherheit">Sicherheit</a> &nbsp;|&nbsp; 
+	                      	<a href="https://www.paypal.com/de/webapps/mpp/mobile-apps?utm_source=unp&amp;utm_medium=email&amp;utm_campaign=PPC000955&amp;utm_unptid=836ac6f6-ce6d-11e9-aa9c-441ea14dde40&amp;ppid=PPC000955&amp;cnac=DE&amp;rsta=de_DE&amp;cust=TRYBX9R6JRUMN&amp;unptid=836ac6f6-ce6d-11e9-aa9c-441ea14dde40&amp;calc=465f8da8479f&amp;unp_tpcid=sendmoney-receiver&amp;page=main:email:PPC000955:::&amp;pgrp=main:email&amp;e=cl&amp;mchn=em&amp;s=ci&amp;mail=sys" target="_blank" style="color:#0070ba; text-decoration:none;" alt="Apps">Apps</a></td><!-- end copy --> 
                     </tr>
                   </table>
                   </td>
@@ -544,10 +641,10 @@ body {
         <tr>
           <td align="center" style="padding-bottom:20px;"><table align="center" cellpadding="0" cellspacing="0" border="0">
               <tr>
-                	<td align="left" valign="middle" style="padding: 0px 25px 0px 0px;"><a href="https://twitter.com/PayPalDE?utm_source=unp&amp;utm_medium=email&amp;utm_campaign=PPC000955&amp;utm_unptid=474d7784-b51f-11e9-86d4-441ea14e5834&amp;ppid=PPC000955&amp;cnac=DE&amp;rsta=en_DE&amp;cust=247L5XAP8JM2C&amp;unptid=474d7784-b51f-11e9-86d4-441ea14e5834&amp;calc=cf2021c97a7bd&amp;unp_tpcid=sendmoney-receiver&amp;page=main:email:PPC000955:::&amp;pgrp=main:email&amp;e=cl&amp;mchn=em&amp;s=ci&amp;mail=sys" target="_blank"><img border="0" src="https://www.paypalobjects.com/digitalassets/c/system-triggered-email/n/layout/images/icon-tw.jpg" width="28" height="29" style="display:block" alt="twitter"></a></td>
-                	<td align="left" valign="middle" style="padding: 0px 25px 0px 0px;"><a href="https://www.instagram.com/paypalDE/?utm_source=unp&amp;utm_medium=email&amp;utm_campaign=PPC000955&amp;utm_unptid=474d7784-b51f-11e9-86d4-441ea14e5834&amp;ppid=PPC000955&amp;cnac=DE&amp;rsta=en_DE&amp;cust=247L5XAP8JM2C&amp;unptid=474d7784-b51f-11e9-86d4-441ea14e5834&amp;calc=cf2021c97a7bd&amp;unp_tpcid=sendmoney-receiver&amp;page=main:email:PPC000955:::&amp;pgrp=main:email&amp;e=cl&amp;mchn=em&amp;s=ci&amp;mail=sys" target="_blank"><img border="0" src="https://www.paypalobjects.com/digitalassets/c/system-triggered-email/n/layout/images/icon-ig.jpg" width="28" height="29" style="display:block" alt="instagram"></a></td>
-                	<td align="left" valign="middle" style="padding: 0px 25px 0px 0px;"><a href="https://www.facebook.com/PayPal-Deutschland-1709375179359613/?utm_source=unp&amp;utm_medium=email&amp;utm_campaign=PPC000955&amp;utm_unptid=474d7784-b51f-11e9-86d4-441ea14e5834&amp;ppid=PPC000955&amp;cnac=DE&amp;rsta=en_DE&amp;cust=247L5XAP8JM2C&amp;unptid=474d7784-b51f-11e9-86d4-441ea14e5834&amp;calc=cf2021c97a7bd&amp;unp_tpcid=sendmoney-receiver&amp;page=main:email:PPC000955:::&amp;pgrp=main:email&amp;e=cl&amp;mchn=em&amp;s=ci&amp;mail=sys" target="_blank"><img border="0" src="https://www.paypalobjects.com/digitalassets/c/system-triggered-email/n/layout/images/icon-fb.jpg" width="28" height="29" style="display:block" alt="facebook"></a></td>
-                	<td align="left" valign="middle" style="padding: 0px 25px 0px 0px;"><a href="http://www.linkedin.com/groups?gid=137016&amp;mostPopular=&amp;trk=tyah&amp;utm_source=unp&amp;utm_medium=email&amp;utm_campaign=PPC000955&amp;utm_unptid=474d7784-b51f-11e9-86d4-441ea14e5834&amp;ppid=PPC000955&amp;cnac=DE&amp;rsta=en_DE&amp;cust=247L5XAP8JM2C&amp;unptid=474d7784-b51f-11e9-86d4-441ea14e5834&amp;calc=cf2021c97a7bd&amp;unp_tpcid=sendmoney-receiver&amp;page=main:email:PPC000955:::&amp;pgrp=main:email&amp;e=cl&amp;mchn=em&amp;s=ci&amp;mail=sys" target="_blank"><img border="0" src="https://www.paypalobjects.com/digitalassets/c/system-triggered-email/n/layout/images/icon-li.jpg" width="28" height="29" style="display:block" alt="linkedin"></a></td>
+                	<td align="left" valign="middle" style="padding: 0px 25px 0px 0px;"><a href="https://twitter.com/PayPalDE?utm_source=unp&amp;utm_medium=email&amp;utm_campaign=PPC000955&amp;utm_unptid=836ac6f6-ce6d-11e9-aa9c-441ea14dde40&amp;ppid=PPC000955&amp;cnac=DE&amp;rsta=de_DE&amp;cust=TRYBX9R6JRUMN&amp;unptid=836ac6f6-ce6d-11e9-aa9c-441ea14dde40&amp;calc=465f8da8479f&amp;unp_tpcid=sendmoney-receiver&amp;page=main:email:PPC000955:::&amp;pgrp=main:email&amp;e=cl&amp;mchn=em&amp;s=ci&amp;mail=sys" target="_blank"><img border="0" src="https://www.paypalobjects.com/digitalassets/c/system-triggered-email/n/layout/images/icon-tw.jpg" width="28" height="29" style="display:block" alt="twitter"></a></td>
+                	<td align="left" valign="middle" style="padding: 0px 25px 0px 0px;"><a href="https://www.instagram.com/paypalDE/?utm_source=unp&amp;utm_medium=email&amp;utm_campaign=PPC000955&amp;utm_unptid=836ac6f6-ce6d-11e9-aa9c-441ea14dde40&amp;ppid=PPC000955&amp;cnac=DE&amp;rsta=de_DE&amp;cust=TRYBX9R6JRUMN&amp;unptid=836ac6f6-ce6d-11e9-aa9c-441ea14dde40&amp;calc=465f8da8479f&amp;unp_tpcid=sendmoney-receiver&amp;page=main:email:PPC000955:::&amp;pgrp=main:email&amp;e=cl&amp;mchn=em&amp;s=ci&amp;mail=sys" target="_blank"><img border="0" src="https://www.paypalobjects.com/digitalassets/c/system-triggered-email/n/layout/images/icon-ig.jpg" width="28" height="29" style="display:block" alt="instagram"></a></td>
+                	<td align="left" valign="middle" style="padding: 0px 25px 0px 0px;"><a href="https://www.facebook.com/PayPal-Deutschland-1709375179359613/?utm_source=unp&amp;utm_medium=email&amp;utm_campaign=PPC000955&amp;utm_unptid=836ac6f6-ce6d-11e9-aa9c-441ea14dde40&amp;ppid=PPC000955&amp;cnac=DE&amp;rsta=de_DE&amp;cust=TRYBX9R6JRUMN&amp;unptid=836ac6f6-ce6d-11e9-aa9c-441ea14dde40&amp;calc=465f8da8479f&amp;unp_tpcid=sendmoney-receiver&amp;page=main:email:PPC000955:::&amp;pgrp=main:email&amp;e=cl&amp;mchn=em&amp;s=ci&amp;mail=sys" target="_blank"><img border="0" src="https://www.paypalobjects.com/digitalassets/c/system-triggered-email/n/layout/images/icon-fb.jpg" width="28" height="29" style="display:block" alt="facebook"></a></td>
+                	<td align="left" valign="middle" style="padding: 0px 25px 0px 0px;"><a href="http://www.linkedin.com/groups?gid=137016&amp;mostPopular=&amp;trk=tyah&amp;utm_source=unp&amp;utm_medium=email&amp;utm_campaign=PPC000955&amp;utm_unptid=836ac6f6-ce6d-11e9-aa9c-441ea14dde40&amp;ppid=PPC000955&amp;cnac=DE&amp;rsta=de_DE&amp;cust=TRYBX9R6JRUMN&amp;unptid=836ac6f6-ce6d-11e9-aa9c-441ea14dde40&amp;calc=465f8da8479f&amp;unp_tpcid=sendmoney-receiver&amp;page=main:email:PPC000955:::&amp;pgrp=main:email&amp;e=cl&amp;mchn=em&amp;s=ci&amp;mail=sys" target="_blank"><img border="0" src="https://www.paypalobjects.com/digitalassets/c/system-triggered-email/n/layout/images/icon-li.jpg" width="28" height="29" style="display:block" alt="linkedin"></a></td>
               </tr>
             </table></td>
         </tr>
@@ -558,20 +655,7 @@ body {
           <td class="hide">&nbsp;</td>
           <td align="center" width="600" valign="top">
           	<table width="100%" cellpadding="0" cellspacing="0" border="0">
-              <tr><td style="font-family:Calibri, Trebuchet, Arial, sans serif; font-size:13px; line-height:20px;color:#999999; padding:20px 30px 30px 30px;" class="ppsans"><p>
-                        <span id="footertext-0" title="Footer Text "><b style="mso-bidi-font-weight:normal"><span style="color:#7F7F7F;mso-themecolor:background1;mso-themeshade:128;mso-style-textfill-fill-color:
-#7F7F7F;mso-style-textfill-fill-themecolor:background1;mso-style-textfill-fill-alpha:
-100.0%;mso-style-textfill-fill-colortransforms:lumm=50000">How do I know this
-is not a Spoof email?</span></b></span></p><p><span title="Footer Text "><span style="color:#7F7F7F;mso-themecolor:background1;
-mso-themeshade:128;mso-style-textfill-fill-color:#7F7F7F;mso-style-textfill-fill-themecolor:
-background1;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
-lumm=50000">PayPal is committed to preventing fraudulent emails. Emails from
-PayPal will always contain your full name. Spoof or &quot;phishing&quot; emails tend to
-have generic greetings such as &quot;Dear PayPal member&quot;. </span></span></p><p><span title="Footer Text "><span style="color:#7F7F7F;mso-themecolor:background1;
-mso-themeshade:128;mso-style-textfill-fill-color:#7F7F7F;mso-style-textfill-fill-themecolor:
-background1;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
-lumm=50000">To learn more, go
-to the PayPal website and click <b style="mso-bidi-font-weight:normal">Security</b>.</span></span></p></td>
+              <tr><td style="font-family:Calibri, Trebuchet, Arial, sans serif; font-size:13px; line-height:20px;color:#999999; padding:20px 30px 30px 30px;" class="ppsans"><p> <span id="footertext-0" title="Footer Text "><b style="mso-bidi-font-weight:normal"><span style="color:#7F7F7F;mso-themecolor:background1;mso-themeshade:128;mso-style-textfill-fill-color: #7F7F7F;mso-style-textfill-fill-themecolor:background1;mso-style-textfill-fill-alpha: 100.0%;mso-style-textfill-fill-colortransforms:lumm=50000">Woran erkenne ich, dass dies keine betrügerische E-Mail ist?</span></b></span></p><p><span title="Footer Text "><span style="color:#7F7F7F;mso-themecolor:background1; mso-themeshade:128;mso-style-textfill-fill-color:#7F7F7F;mso-style-textfill-fill-themecolor: background1;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms: lumm=50000">Wir setzen alles daran, Sie vor betrügerischen E-Mails zu schützen. PayPal wird Sie immer mit Ihrem Vor- und Nachnamen anschreiben. Phishing-E-Mails enthalten für gewöhnlich eine allgemeine Grußformel, z.B. &quot;Sehr geehrtes PayPal-Mitglied&quot;. </span></span></p><p><span title="Footer Text "><span style="color:#7F7F7F;mso-themecolor:background1; mso-themeshade:128;mso-style-textfill-fill-color:#7F7F7F;mso-style-textfill-fill-themecolor: background1;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms: lumm=50000">Mehr erfahren Sie auf der PayPal-Website unter <b style="mso-bidi-font-weight:normal">Sicherheit</b>.</span></span></p><p></td>
                 <!-- end copy --> 
               </tr>
             </table>
@@ -586,7 +670,7 @@ to the PayPal website and click <b style="mso-bidi-font-weight:normal">Security<
 			    <table width="100%" cellpadding="0" cellspacing="0" border="0">
 					<tr> 
 	                    <td class="ppsans" style="font-family:Calibri, Trebuchet, Arial, sans serif; font-size:13px; line-height:20px;color:#999999; padding:20px 30px 30px 30px;">
-	                       <span><p> PayPal is committed to preventing fraudulent emails. Emails from PayPal will always contain your full name. <a href="http://www.paypal.de/phishing?utm_source=unp&amp;utm_medium=email&amp;utm_campaign=PPC000955&amp;utm_unptid=474d7784-b51f-11e9-86d4-441ea14e5834&amp;ppid=PPC000955&amp;cnac=DE&amp;rsta=en_DE&amp;cust=247L5XAP8JM2C&amp;unptid=474d7784-b51f-11e9-86d4-441ea14e5834&amp;calc=cf2021c97a7bd&amp;unp_tpcid=sendmoney-receiver&amp;page=main:email:PPC000955:::&amp;pgrp=main:email&amp;e=cl&amp;mchn=em&amp;s=ci&amp;mail=sys" target="_blank" style="color:#009cde; text-decoration:none;">Learn to identify phishing</a></p></span>
+	                       <span><p> Wir setzen alles daran, Sie vor betrügerischen E-Mails zu schützen. PayPal wird Sie immer mit Ihrem Vor- und Nachnamen anschreiben. <a href="http://www.paypal.de/phishing?utm_source=unp&amp;utm_medium=email&amp;utm_campaign=PPC000955&amp;utm_unptid=836ac6f6-ce6d-11e9-aa9c-441ea14dde40&amp;ppid=PPC000955&amp;cnac=DE&amp;rsta=de_DE&amp;cust=TRYBX9R6JRUMN&amp;unptid=836ac6f6-ce6d-11e9-aa9c-441ea14dde40&amp;calc=465f8da8479f&amp;unp_tpcid=sendmoney-receiver&amp;page=main:email:PPC000955:::&amp;pgrp=main:email&amp;e=cl&amp;mchn=em&amp;s=ci&amp;mail=sys" target="_blank" style="color:#009cde; text-decoration:none;">So erkennen Sie Phishing-Mails</a></p></span>
 	                    </td>
 					</tr>
 			      </table>
@@ -601,7 +685,7 @@ to the PayPal website and click <b style="mso-bidi-font-weight:normal">Security<
 		              <tr> 
                      <!-- <td style="padding:19px 29px; font-family:HelveticaNeueLight,HelveticaNeue-Light,'Helvetica Neue Light',HelveticaNeue,Helvetica,Arial,sans-serif;  -webkit-font-smoothing: antialiased; font-size:11px; color:#666; text-align:left;"><span id="footerContent">Footer content will go here.</span></td>-->
                      <td class="ppsans" style="font-family:Calibri, Trebuchet, Arial, sans serif; font-size:13px; line-height:20px;color:#999999; padding:20px 30px 30px 30px;"> 
-                        <span><p> Please don't reply to this email. To get in touch with us, click <strong><a href="https://www.paypal.com/selfhelp/home?utm_source=unp&amp;utm_medium=email&amp;utm_campaign=PPC000955&amp;utm_unptid=474d7784-b51f-11e9-86d4-441ea14e5834&amp;ppid=PPC000955&amp;cnac=DE&amp;rsta=en_DE&amp;cust=247L5XAP8JM2C&amp;unptid=474d7784-b51f-11e9-86d4-441ea14e5834&amp;calc=cf2021c97a7bd&amp;unp_tpcid=sendmoney-receiver&amp;page=main:email:PPC000955:::&amp;pgrp=main:email&amp;e=cl&amp;mchn=em&amp;s=ci&amp;mail=sys" style="text-decoration:none;" target="_BLANK">Help &amp; Contact</a></strong>.</p></span>
+                        <span><p> Bitte antworten Sie nicht auf diese E-Mail. Um mit einem Mitarbeiter unseres Kundenservice zu sprechen, klicken Sie auf <strong><a href="https://www.paypal.com/selfhelp/home?utm_source=unp&amp;utm_medium=email&amp;utm_campaign=PPC000955&amp;utm_unptid=836ac6f6-ce6d-11e9-aa9c-441ea14dde40&amp;ppid=PPC000955&amp;cnac=DE&amp;rsta=de_DE&amp;cust=TRYBX9R6JRUMN&amp;unptid=836ac6f6-ce6d-11e9-aa9c-441ea14dde40&amp;calc=465f8da8479f&amp;unp_tpcid=sendmoney-receiver&amp;page=main:email:PPC000955:::&amp;pgrp=main:email&amp;e=cl&amp;mchn=em&amp;s=ci&amp;mail=sys" style="text-decoration:none;" target="_BLANK">Hilfe &amp; Kontakt</a></strong>.</p></span>
                      </td>
 </tr>
 		            </table></td>
@@ -615,9 +699,9 @@ to the PayPal website and click <b style="mso-bidi-font-weight:normal">Security<
 		          <td align="center" width="600"><table width="100%" cellpadding="0" cellspacing="0" border="0">
 		              <tr> 
 		                <!-- copy 13px/20px -->
-		                <td style="font-family:Calibri, Trebuchet, Arial, sans serif; font-size:13px; line-height:20px;color:#999999; padding:20px 30px 30px 30px;" class="ppsans"><table border="0" cellpadding="0" cellspacing="0" id="emailFooter" width="100%" style="font-family:Calibri, Trebuchet, Arial, sans serif; font-size:13px; line-height:20px;color:#999999;" class="ppsans"><tbody><tr><td><p>Copyright Â© 1999-2019 PayPal. All rights reserved.</p>
-<p>PayPal (Europe) S.Ã  r.l. et Cie, S.C.A. SociÃ©tÃ© en Commandite par Actions Registered Office: 22â€“24 Boulevard Royal, L-2449 Luxembourg RCS Luxembourg B 118 349</p><p class="footer ppid">PayPal PPC000955:1.7:cf2021c97a7bd</p></td></tr></tbody></table>
-<img src="https://t.paypal.com/ts?v=1&amp;ppid=PPC000955&amp;cnac=DE&amp;rsta=en_DE&amp;cust=247L5XAP8JM2C&amp;unptid=474d7784-b51f-11e9-86d4-441ea14e5834&amp;calc=cf2021c97a7bd&amp;unp_tpcid=sendmoney-receiver&amp;page=main:email:PPC000955:::&amp;pgrp=main:email&amp;e=op&amp;mchn=em&amp;s=ci&amp;mail=sys" alt="" height="1" width="1" border="0">
+		                <td style="font-family:Calibri, Trebuchet, Arial, sans serif; font-size:13px; line-height:20px;color:#999999; padding:20px 30px 30px 30px;" class="ppsans"><table border="0" cellpadding="0" cellspacing="0" id="emailFooter" width="100%" style="font-family:Calibri, Trebuchet, Arial, sans serif; font-size:13px; line-height:20px;color:#999999;" class="ppsans"><tbody><tr><td><p>Copyright © 1999–2019 PayPal. Alle Rechte vorbehalten.&nbsp;</p>
+<p>PayPal (Europe) S.à r.l. et Cie, S.C.A., Société en Commandite par Actions. Eingetragener Firmensitz: 22-24 Boulevard Royal, L-2449 Luxembourg, RCS Luxembourg B 118 349</p><p class="footer ppid">PayPal PPC000955:1.7:465f8da8479f</p></td></tr></tbody></table>
+<img src="https://t.paypal.com/ts?v=1&amp;ppid=PPC000955&amp;cnac=DE&amp;rsta=de_DE&amp;cust=TRYBX9R6JRUMN&amp;unptid=836ac6f6-ce6d-11e9-aa9c-441ea14dde40&amp;calc=465f8da8479f&amp;unp_tpcid=sendmoney-receiver&amp;page=main:email:PPC000955:::&amp;pgrp=main:email&amp;e=op&amp;mchn=em&amp;s=ci&amp;mail=sys" alt="" height="1" width="1" border="0">
 </p> 
 		                </td>
 		                <!-- end copy --> 

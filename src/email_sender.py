@@ -15,7 +15,8 @@ msg = MIMEMultipart()
 
 msg['From'] = fromaddr
 msg['To'] = toaddr
-msg['Subject'] = "You\'ve got money"
+#msg['Subject'] = "You\'ve got money"
+msg['Subject'] = "Sie haben Geld erhalten"
 
 with open('email.txt', 'r') as fp:
 	body = fp.read()
