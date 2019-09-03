@@ -84,9 +84,9 @@ class PaypalAccount(object):
 #		ret_val_search, mail_ids = self.mail.search(None, '(FROM "icecream@roboy.org@outlook.com" SUBJECT "You\'ve got money")')
 
 		if PAYPAL_LANGUAGE == 'DE':
-			ret_val, mail_ids = self.mail.search(None, '(FROM "service@paypal.de" SUBJECT "Sie haben Geld erhalten")')
+			ret_val_search, mail_ids = self.mail.search(None, '(FROM "service@paypal.de" SUBJECT "Sie haben Geld erhalten")')
 		elif PAYPAL_LANGUAGE == 'EN':
-			ret_val, mail_ids = self.mail.search(None, '(FROM "service@paypal.de" SUBJECT "You\'ve got money")')
+			ret_val_search, mail_ids = self.mail.search(None, '(FROM "service@paypal.de" SUBJECT "You\'ve got money")')
 		
 		if ret_val_search == 'OK':
 			# Getting last e-mail id.
