@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 from email.MIMEMultipart import MIMEMultipart
 from email.MIMEText import MIMEText
 

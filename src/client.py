@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import sys
 import rospy
 from roboy_cognition_msgs.srv import Payment
