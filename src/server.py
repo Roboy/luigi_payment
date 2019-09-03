@@ -130,7 +130,7 @@ def show_ads_on_tablet():
 	data = {'default': True}
 	requests.post('http://localhost:1880/image', data=data)
 
-def show_order_on_tablet(flavors, scoops, price, payment_option, encoded_img=None):
+def show_order_on_tablet(flavors, scoops, price, payment_option, encoded_img=None, paid=0):
 	data = {'flavors': flavors, 'scoops': scoops, 'price': price, 'payment_option': payment_option, 'default': False}
 	
 	if payment_option == PaymentOptions.PAYPAL:
@@ -138,6 +138,7 @@ def show_order_on_tablet(flavors, scoops, price, payment_option, encoded_img=Non
 		data['timer'] = MAX_PAYPAL_WAIT_TIME
 	elif payment_option == PaymentOptions.COIN:
 		data['timer'] = MAX_COIN_WAIT_TIME
+		data['paid'] = paid
 	
 	requests.post('http://localhost:1880/image', data=data)
 
@@ -156,17 +157,26 @@ def handle_payment(req, coin_counter, paypal_acc):
 			# Show the order on tablet.
 			show_order_on_tablet(req.flavors, req.scoops, int(req.price), int(req.payment_option))
 
+			prev_paid = 0 
 			# Check paid amount every second.
 			total_slept_time = 0
 			while coin_counter.coin_sum < req.price and total_slept_time < MAX_COIN_WAIT_TIME:
 				rospy.sleep(PRICE_CHECK_INTERVAL)
 				total_slept_time = total_slept_time + PRICE_CHECK_INTERVAL
+				
+				if prev_paid != coin_counter.coin_sum:
+					prev_paid = coin_counter.coin_sum
+					show_order_on_tablet(req.flavors, req.scoops, int(req.price), int(req.payment_option), paid=prev_paid)
 			
 			# Before returning earlier than maximum wait time, wait for stable coin reader.
 			# Otherwise it can return less amount than actually paid.
 			if total_slept_time < MAX_COIN_WAIT_TIME:
 				while rospy.get_time() - coin_counter.last_call_time < PRICE_CHECK_INTERVAL:
 					rospy.sleep(PRICE_CHECK_INTERVAL)
+					
+					if prev_paid != coin_counter.coin_sum:
+						prev_paid = coin_counter.coin_sum
+						show_order_on_tablet(req.flavors, req.scoops, int(req.price), int(req.payment_option), paid=prev_paid)
 
 					# Do not wait too much.
 					# Otherwise users can bully us.
