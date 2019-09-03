@@ -18,12 +18,13 @@ import io
 # 20 ms in fast mode
 # 50 ms in medium mode
 # 100 ms in slow mode
-MAX_COIN_WAIT_TIME = 30 # in seconds
-MAX_PAYPAL_WAIT_TIME = 60 # in secons
+MAX_COIN_WAIT_TIME = 60 # in seconds
+MAX_PAYPAL_WAIT_TIME = 120 # in secons
 INPUT_PIN = 3 # Raspberry Pi GPIO pin to read coin counter output.
 EXTRA_WAITING_TIME = 10 # in seconds
 PRICE_CHECK_INTERVAL = 1 # in seconds
 PAYPAL_ME_URL = 'https://www.paypal.me/bilalvural35/'
+PAYPAL_LANGUAGE = 'DE' # DE or EN
 
 
 class PaymentOptions(IntEnum):
@@ -66,8 +67,13 @@ class PaypalAccount(object):
 	
 	def get_num_mail(self):
 #		ret_val, mail_ids = self.mail.search(None, '(FROM "service@paypal.de" SUBJECT "You\'ve got money")')
-#		ret_val, mail_ids = self.mail.search(None, '(FROM "bilal_v@hotmail.com" SUBJECT "You\'ve got money")')
-		ret_val, mail_ids = self.mail.search(None, '(FROM "luigimockup@outlook.com" SUBJECT "You\'ve got money")')
+#		ret_val, mail_ids = self.mail.search(None, '(FROM "icecream@roboy.org@outlook.com" SUBJECT "You\'ve got money")')
+
+		if PAYPAL_LANGUAGE == 'DE':
+			ret_val, mail_ids = self.mail.search(None, '(FROM "service@paypal.de" SUBJECT "Sie haben Geld erhalten")')
+		elif PAYPAL_LANGUAGE == 'EN':
+			ret_val, mail_ids = self.mail.search(None, '(FROM "service@paypal.de" SUBJECT "You\'ve got money")')
+
 		if ret_val == 'OK':
 			return len(mail_ids[0].split())
 		else:
@@ -75,8 +81,12 @@ class PaypalAccount(object):
 	
 	def get_last_payment(self):
 #		ret_val_search, mail_ids = self.mail.search(None, '(FROM "service@paypal.de" SUBJECT "You\'ve got money")')
-#		ret_val_search, mail_ids = self.mail.search(None, '(FROM "bilal_v@hotmail.com" SUBJECT "You\'ve got money")')
-		ret_val_search, mail_ids = self.mail.search(None, '(FROM "luigimockup@outlook.com" SUBJECT "You\'ve got money")')
+#		ret_val_search, mail_ids = self.mail.search(None, '(FROM "icecream@roboy.org@outlook.com" SUBJECT "You\'ve got money")')
+
+		if PAYPAL_LANGUAGE == 'DE':
+			ret_val, mail_ids = self.mail.search(None, '(FROM "service@paypal.de" SUBJECT "Sie haben Geld erhalten")')
+		elif PAYPAL_LANGUAGE == 'EN':
+			ret_val, mail_ids = self.mail.search(None, '(FROM "service@paypal.de" SUBJECT "You\'ve got money")')
 		
 		if ret_val_search == 'OK':
 			# Getting last e-mail id.
@@ -101,7 +111,10 @@ class PaypalAccount(object):
 				body_str = str_email.text_html[0]
 				
 				# Parsing 'Rafael Hostettler sent you 0,02 Euro.'.
-				name_end_pos = body_str.find('sent you') - 1
+				if PAYPAL_LANGUAGE == 'DE':
+					name_end_pos = body_str.find('hat Ihnen') - 1
+				elif PAYPAL_LANGUAGE == 'EN':
+					name_end_pos = body_str.find('sent you') - 1
 				# Assuming sum of characters in name and surname
 				# should not be more than 50 characters.
 				name_start_pos = body_str.find('>', name_end_pos-50, name_end_pos) + 1
@@ -130,12 +143,13 @@ def show_ads_on_tablet():
 	data = {'default': True}
 	requests.post('http://localhost:1880/image', data=data)
 
-def show_order_on_tablet(flavors, scoops, price, payment_option, encoded_img=None, paid=0):
+def show_order_on_tablet(flavors, scoops, price, payment_option, encoded_img=None, paid=0, paypal_url=''):
 	data = {'flavors': flavors, 'scoops': scoops, 'price': price, 'payment_option': payment_option, 'default': False}
 	
 	if payment_option == PaymentOptions.PAYPAL:
 		data['encoded'] = encoded_img
 		data['timer'] = MAX_PAYPAL_WAIT_TIME
+		data['paypal_url'] = paypal_url
 	elif payment_option == PaymentOptions.COIN:
 		data['timer'] = MAX_COIN_WAIT_TIME
 		data['paid'] = paid
@@ -216,7 +230,7 @@ def handle_payment(req, coin_counter, paypal_acc):
 			rospy.logdebug('QR Code has converted to base64!')
 
 			# Show the order on tablet.
-			show_order_on_tablet(req.flavors, req.scoops, int(req.price), int(req.payment_option), encoded_img=encoded_img)
+			show_order_on_tablet(req.flavors, req.scoops, int(req.price), int(req.payment_option), encoded_img=encoded_img, paypal_url=qrcode_text)
 			
 			# Number of mails before payment process.
 			mail_sum_prev = paypal_acc.get_num_mail()
