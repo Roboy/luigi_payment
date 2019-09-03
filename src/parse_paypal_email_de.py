@@ -9,8 +9,7 @@ email_user = 'roboyicecream@outlook.com'
 
 
 import getpass
-#email_pass = getpass.getpass('Password:')
-email_pass = 'caQsys-0corja-myswyc'
+email_pass = getpass.getpass('Password:')
 
 
 try:
