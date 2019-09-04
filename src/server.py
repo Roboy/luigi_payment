@@ -23,7 +23,7 @@ MAX_PAYPAL_WAIT_TIME = 120 # in secons
 INPUT_PIN = 3 # Raspberry Pi GPIO pin to read coin counter output.
 EXTRA_WAITING_TIME = 10 # in seconds
 PRICE_CHECK_INTERVAL = 1 # in seconds
-PAYPAL_ME_URL = 'https://www.paypal.me/bilalvural35/'
+PAYPAL_ME_URL = 'https://www.paypal.me/roboyicecream/'
 PAYPAL_LANGUAGE = 'DE' # DE or EN
 
 

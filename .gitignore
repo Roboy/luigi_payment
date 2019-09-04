@@ -103,6 +103,6 @@ venv.bak/
 # mypy
 .mypy_cache/
 
-#/src/email.txt
+/src/email.txt
 /src/credentials.txt
 /src/mock_credentials.txt
