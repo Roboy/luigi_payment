@@ -93,12 +93,14 @@ class PaypalAccount(object):
 			if ret_val_fetch == 'OK':
 				# Raw e-mail is bytes.
 				raw_email = mail_data[0][1]
+				
 				# For Python 2: parse string.
 				if sys.version_info[0] < 3:
 					str_email = mailparser.parse_from_string(raw_email)
 				# For Python 3: From bytes to string.
 				else:
 					str_email = mailparser.parse_from_bytes(raw_email)
+				
 				# PayPal e-mails does not contain plain text area.
 				# str_emil.text_plain returns empty.
 				# Thus we are getting HTML form of the e-mail.
@@ -109,6 +111,7 @@ class PaypalAccount(object):
 					name_end_pos = body_str.find('hat Ihnen') - 1
 				elif PAYPAL_LANGUAGE == 'EN':
 					name_end_pos = body_str.find('sent you') - 1
+				
 				# Assuming sum of characters in name and surname
 				# should not be more than 50 characters.
 				name_start_pos = body_str.find('>', name_end_pos-50, name_end_pos) + 1
@@ -165,13 +168,14 @@ def handle_payment(req, coin_counter, paypal_acc):
 			# Show the order on tablet.
 			show_order_on_tablet(req.flavors, req.scoops, int(req.price), int(req.payment_option))
 
-			prev_paid = 0 
+			prev_paid = 0
 			# Check paid amount every second.
 			total_slept_time = 0
 			while coin_counter.coin_sum < req.price and total_slept_time < MAX_COIN_WAIT_TIME:
 				rospy.sleep(PRICE_CHECK_INTERVAL)
 				total_slept_time = total_slept_time + PRICE_CHECK_INTERVAL
 				
+				# If user instered coin, update interface.
 				if prev_paid != coin_counter.coin_sum:
 					prev_paid = coin_counter.coin_sum
 					show_order_on_tablet(req.flavors, req.scoops, int(req.price), int(req.payment_option), paid=prev_paid)
@@ -182,6 +186,7 @@ def handle_payment(req, coin_counter, paypal_acc):
 				while rospy.get_time() - coin_counter.last_call_time < PRICE_CHECK_INTERVAL:
 					rospy.sleep(PRICE_CHECK_INTERVAL)
 					
+					# If user instered coin, update interface.
 					if prev_paid != coin_counter.coin_sum:
 						prev_paid = coin_counter.coin_sum
 						show_order_on_tablet(req.flavors, req.scoops, int(req.price), int(req.payment_option), paid=prev_paid)
@@ -238,7 +243,7 @@ def handle_payment(req, coin_counter, paypal_acc):
 			# If new payment mail received, return last payment.
 			if paypal_acc.get_num_mail() > mail_sum_prev:
 				money, sender_name, msg = paypal_acc.get_last_payment()
-				rospy.loginfo('You have paid ' + str(money) + ' cents.')
+				rospy.loginfo(str(sender_name) + ' have paid ' + str(money) + ' cents.')
 				
 				# Show advertisement on tablet.
 				show_ads_on_tablet()

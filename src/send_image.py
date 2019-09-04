@@ -1,20 +1,23 @@
-#!/usr/bin/env python
-
 import requests
 import qrcode
 import base64
 import io
 
-#files = {'image': open('C:/Users/Bilal/Desktop/Luigi_SSBU.png', 'rb')}
-#files = {'image': open('C:/Users/Bilal/Desktop/blank.png', 'rb')}
 data =  {}
-data['flavors'] = ['chocolate', 'vanilla']
-data['scoops'] = [1, 1]
-data['price'] = 2.5
+data['flavors'] = ['chocolate', 'vanilla', 'strawberry']
+#data['flavors'] = ['chocolate']
+
+data['scoops'] = [1, 1, 2]
+#data['scoops'] = [1]
+
+data['price'] = 250
 data['payment_option'] = 1
+data['timer'] = 42
 data['default'] = False
 
-qrcode_text = 'https://www.paypal.me/bilalvural35/umur'
+data['paid'] = 0
+
+qrcode_text = 'https://www.paypal.me/roboyicecream/3.5EUR'
 img = qrcode.make(qrcode_text)
 
 buff = io.BytesIO()

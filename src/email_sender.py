@@ -7,8 +7,6 @@ with open('mock_credentials.txt', 'r') as f:
 	fromaddr = f.readline().strip()
 	password = f.readline().strip()
 
-#fromaddr = "luigimockup@outlook.com"
-
 toaddr = "roboyicecream@outlook.com"
 
 msg = MIMEMultipart()
@@ -27,9 +25,6 @@ server = smtplib.SMTP('smtp.live.com', 25)
 server.ehlo()
 server.starttls()
 server.ehlo()
-
-import getpass
-#password = getpass.getpass()
 
 
 server.login(fromaddr, password)
