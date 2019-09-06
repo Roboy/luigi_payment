@@ -67,7 +67,7 @@ class PaypalAccount(object):
 			rospy.logdebug('Successfully initialized e-mail!')
 		
 		except Exception as e:
-			rospy.logdebug('Failed to initialize e-mail! ' + str(e))
+			rospy.logerr('Failed to initialize e-mail! ' + str(e))
 	
 	def get_num_mail(self):
 		try:
@@ -82,8 +82,7 @@ class PaypalAccount(object):
 			else:
 				return None
 		except Exception as e:
-			rospy.logdebug('Internal mail error ' + str(e))
-		finally:
+			rospy.logerr('Internal mail error ' + str(e))
 			return None
 	
 	def get_last_payment(self):
@@ -150,25 +149,30 @@ class PaypalAccount(object):
 				return 0, '', 'Internal mail error.'
 		except Exception as e:
 			rospy.logdebug('Internal mail error ' + str(e))
-		finally:
-			return 0, '', 'Internal mail error.'
+			return 0, '', 'Internal mail error.'			
 
 def show_ads_on_tablet():
-	data = {'default': True}
-	requests.post('http://localhost:1880/image', data=data)
+	try:
+		data = {'default': True}
+		requests.post('http://localhost:1880/image', data=data)
+	except Exception as e:
+		rospy.logerr('show_ads_on_tablet failed ' + str(e))
 
 def show_order_on_tablet(flavors, scoops, price, payment_option, encoded_img=None, paid=0, paypal_url=''):
-	data = {'flavors': flavors, 'scoops': scoops, 'price': price, 'payment_option': payment_option, 'default': False}
-	
-	if payment_option == PaymentOptions.PAYPAL:
-		data['encoded'] = encoded_img
-		data['timer'] = MAX_PAYPAL_WAIT_TIME
-		data['paypal_url'] = paypal_url
-	elif payment_option == PaymentOptions.COIN:
-		data['timer'] = MAX_COIN_WAIT_TIME
-		data['paid'] = paid
-	
-	requests.post('http://localhost:1880/image', data=data)
+	try:
+		data = {'flavors': flavors, 'scoops': scoops, 'price': price, 'payment_option': payment_option, 'default': False}
+		
+		if payment_option == PaymentOptions.PAYPAL:
+			data['encoded'] = encoded_img
+			data['timer'] = MAX_PAYPAL_WAIT_TIME
+			data['paypal_url'] = paypal_url
+		elif payment_option == PaymentOptions.COIN:
+			data['timer'] = MAX_COIN_WAIT_TIME
+			data['paid'] = paid
+		
+		requests.post('http://localhost:1880/image', data=data)
+	except Exception as e:
+		rospy.logerr('show_order_on_tablet failed ' + str(e))
 
 def handle_payment(req, coin_counter, paypal_acc):
 	try:
