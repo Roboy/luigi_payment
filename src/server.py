@@ -48,92 +48,109 @@ class PaypalAccount(object):
 		self.password = None
 	
 	def init_mail(self):
-		# 1st line username
-		# 2nd line password
-		with open('credentials.txt', 'r') as f:
-			self.username = f.readline().strip()
-			self.password = f.readline().strip()
-		
-		# Connecting to e-mail provider.
-		self.mail = imaplib.IMAP4_SSL('imap-mail.outlook.com', 993)
-		
-		# Logging in to e-mail account.
-		self.mail.login(self.username, self.password)
-		
-		# Selecting all e-mails.
-		self.mail.select()
+		try:
+			# 1st line username
+			# 2nd line password
+			with open('credentials.txt', 'r') as f:
+				self.username = f.readline().strip()
+				self.password = f.readline().strip()
+			
+			# Connecting to e-mail provider.
+			self.mail = imaplib.IMAP4_SSL('imap-mail.outlook.com', 993)
+			
+			# Logging in to e-mail account.
+			self.mail.login(self.username, self.password)
+			
+			# Selecting all e-mails.
+			self.mail.select()
 
-		rospy.logdebug('Successfully initialized e-mail!')
+			rospy.logdebug('Successfully initialized e-mail!')
+		
+		except Exception as e:
+			rospy.logdebug('Failed to initialize e-mail! ' + str(e))
 	
 	def get_num_mail(self):
-		if PAYPAL_LANGUAGE == 'DE':
-			ret_val, mail_ids = self.mail.search(None, '(FROM "service@paypal.de" SUBJECT "Sie haben Geld erhalten")')
-#			ret_val, mail_ids = self.mail.search(None, '(FROM "luigimockup@outlook.com" SUBJECT "Sie haben Geld erhalten")')
-		elif PAYPAL_LANGUAGE == 'EN':
-			ret_val, mail_ids = self.mail.search(None, '(FROM "service@paypal.de" SUBJECT "You\'ve got money")')
+		try:
+			if PAYPAL_LANGUAGE == 'DE':
+				ret_val, mail_ids = self.mail.search(None, '(FROM "service@paypal.de" SUBJECT "Sie haben Geld erhalten")')
+				#ret_val, mail_ids = self.mail.search(None, '(FROM "luigimockup@outlook.com" SUBJECT "Sie haben Geld erhalten")')
+			elif PAYPAL_LANGUAGE == 'EN':
+				ret_val, mail_ids = self.mail.search(None, '(FROM "service@paypal.de" SUBJECT "You\'ve got money")')
 
-		if ret_val == 'OK':
-			return len(mail_ids[0].split())
-		else:
+			if ret_val == 'OK':
+				return len(mail_ids[0].split())
+			else:
+				return None
+		except Exception as e:
+			rospy.logdebug('Internal mail error ' + str(e))
+		finally:
 			return None
 	
 	def get_last_payment(self):
-		if PAYPAL_LANGUAGE == 'DE':
-			ret_val_search, mail_ids = self.mail.search(None, '(FROM "service@paypal.de" SUBJECT "Sie haben Geld erhalten")')
-#			ret_val_search, mail_ids = self.mail.search(None, '(FROM "luigimockup@outlook.com" SUBJECT "Sie haben Geld erhalten")')
-		elif PAYPAL_LANGUAGE == 'EN':
-			ret_val_search, mail_ids = self.mail.search(None, '(FROM "service@paypal.de" SUBJECT "You\'ve got money")')
+		try:
+			if PAYPAL_LANGUAGE == 'DE':
+				ret_val_search, mail_ids = self.mail.search(None, '(FROM "service@paypal.de" SUBJECT "Sie haben Geld erhalten")')
+				#ret_val_search, mail_ids = self.mail.search(None, '(FROM "luigimockup@outlook.com" SUBJECT "Sie haben Geld erhalten")')
+			elif PAYPAL_LANGUAGE == 'EN':
+				ret_val_search, mail_ids = self.mail.search(None, '(FROM "service@paypal.de" SUBJECT "You\'ve got money")')
 
-		if ret_val_search == 'OK':
-			# Getting last e-mail id.
-			last_mail_id = mail_ids[0].split()[-1]
-			
-			# Getting data of the last e-mail.
-			ret_val_fetch, mail_data = self.mail.fetch(last_mail_id, '(RFC822)')
-			if ret_val_fetch == 'OK':
-				# Raw e-mail is bytes.
-				raw_email = mail_data[0][1]
+			if ret_val_search == 'OK':
+				# Getting last e-mail id.
+				last_mail_id = mail_ids[0].split()[-1]
 				
-				# For Python 2: parse string.
-				if sys.version_info[0] < 3:
-					str_email = mailparser.parse_from_string(raw_email)
-				# For Python 3: From bytes to string.
+				# Getting data of the last e-mail.
+				ret_val_fetch, mail_data = self.mail.fetch(last_mail_id, '(RFC822)')
+				if ret_val_fetch == 'OK':
+					# Raw e-mail is bytes.
+					raw_email = mail_data[0][1]
+					
+					# For Python 2: parse string.
+					if sys.version_info[0] < 3:
+						str_email = mailparser.parse_from_string(raw_email)
+					# For Python 3: From bytes to string.
+					else:
+						str_email = mailparser.parse_from_bytes(raw_email)
+					
+					# PayPal e-mails does not contain plain text area.
+					# str_emil.text_plain returns empty.
+					# Thus we are getting HTML form of the e-mail.
+					body_str = str_email.text_html[0]
+					
+					# Parsing 'Rafael Hostettler sent you 0,02 Euro.'.
+					if PAYPAL_LANGUAGE == 'DE':
+						name_end_pos = body_str.find('hat Ihnen') - 1
+					elif PAYPAL_LANGUAGE == 'EN':
+						name_end_pos = body_str.find('sent you') - 1
+					
+					# Assuming sum of characters in name and surname
+					# should not be more than 50 characters.
+					name_start_pos = body_str.find('>', name_end_pos-50, name_end_pos) + 1
+					
+					# Full name of the sender.
+					sender_name = body_str[name_start_pos:name_end_pos]
+					rospy.logdebug(sender_name + ' is the client.')
+					
+					# Parsing money part.
+					money_area_end = body_str.find('<', name_end_pos)
+					money_area = body_str[name_end_pos:money_area_end]
+					
+					if 'EUR' in money_area:
+						# Finds both 2 and 0,02
+						money = re.findall(r'\d[,\d]*', money_area)[0].replace(',','.')
+						# Money from Euro to Cents
+						return float(money) * 100, sender_name, ''
+					else:
+						rospy.logdebug('Unkown currency')
+						return 0, sender_name, 'Unknown currency.'
 				else:
-					str_email = mailparser.parse_from_bytes(raw_email)
-				
-				# PayPal e-mails does not contain plain text area.
-				# str_emil.text_plain returns empty.
-				# Thus we are getting HTML form of the e-mail.
-				body_str = str_email.text_html[0]
-				
-				# Parsing 'Rafael Hostettler sent you 0,02 Euro.'.
-				if PAYPAL_LANGUAGE == 'DE':
-					name_end_pos = body_str.find('hat Ihnen') - 1
-				elif PAYPAL_LANGUAGE == 'EN':
-					name_end_pos = body_str.find('sent you') - 1
-				
-				# Assuming sum of characters in name and surname
-				# should not be more than 50 characters.
-				name_start_pos = body_str.find('>', name_end_pos-50, name_end_pos) + 1
-				
-				# Full name of the sender.
-				sender_name = body_str[name_start_pos:name_end_pos]
-				rospy.logdebug(sender_name + ' is the client.')
-				
-				# Parsing money part.
-				money_area_end = body_str.find('<', name_end_pos)
-				money_area = body_str[name_end_pos:money_area_end]
-				
-				if 'EUR' in money_area:
-					# Finds both 2 and 0,02
-					money = re.findall(r'\d[,\d]*', money_area)[0].replace(',','.')
-					# Money from Euro to Cents
-					return float(money) * 100, sender_name, ''
-				else:
-					return 0, sender_name, 'Unknown currency.'
+					rospy.logdebug('Internal mail error')
+					return 0, '', 'Internal mail error.'
 			else:
+				rospy.logdebug('Internal mail error')
 				return 0, '', 'Internal mail error.'
-		else:
+		except Exception as e:
+			rospy.logdebug('Internal mail error ' + str(e))
+		finally:
 			return 0, '', 'Internal mail error.'
 
 def show_ads_on_tablet():
@@ -250,11 +267,15 @@ def handle_payment(req, coin_counter, paypal_acc):
 				
 				return money, sender_name, msg
 			else:
+				rospy.loginfo('No payment has received.')
+
 				# Show advertisement on tablet.
 				show_ads_on_tablet()
 				
 				return 0, '', 'No payment.'
 		else:
+			rospy.loginfo('Unkown payment option.')
+
 			# Show advertisement on tablet.
 			show_ads_on_tablet()
 
@@ -275,6 +296,9 @@ def handle_payment(req, coin_counter, paypal_acc):
 
 if __name__ == "__main__":
 	try:
+		rospy.init_node('payment_server', anonymous=False, log_level=rospy.DEBUG)
+		rospy.logdebug('Payment server has initialized!')
+
 		# Settings for Raspberry Pi
 		GPIO.setmode(GPIO.BOARD)
 		GPIO.setup(INPUT_PIN, GPIO.IN)
@@ -285,9 +309,6 @@ if __name__ == "__main__":
 		paypal_acc.init_mail()
 		
 		GPIO.add_event_detect(INPUT_PIN, GPIO.FALLING, callback=coin_counter.coin_count_callback, bouncetime=100)
-
-		rospy.init_node('payment_server', anonymous=True, log_level=rospy.DEBUG)
-		rospy.logdebug('Payment server has initialized!')
 		
 		# Using lambda function to let "handle_payment"
 		# handle more arguements.
