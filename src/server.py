@@ -139,16 +139,16 @@ class PaypalAccount(object):
 						# Money from Euro to Cents
 						return float(money) * 100, sender_name, ''
 					else:
-						rospy.logdebug('Unkown currency')
+						rospy.logerr('Unkown currency')
 						return 0, sender_name, 'Unknown currency.'
 				else:
-					rospy.logdebug('Internal mail error')
+					rospy.logerr('Internal mail error')
 					return 0, '', 'Internal mail error.'
 			else:
-				rospy.logdebug('Internal mail error')
+				rospy.logerr('Internal mail error')
 				return 0, '', 'Internal mail error.'
 		except Exception as e:
-			rospy.logdebug('Internal mail error ' + str(e))
+			rospy.logerr('Internal mail error ' + str(e))
 			return 0, '', 'Internal mail error.'			
 
 def show_ads_on_tablet():
@@ -177,7 +177,7 @@ def show_order_on_tablet(flavors, scoops, price, payment_option, encoded_img=Non
 def handle_payment(req, coin_counter, paypal_acc):
 	try:
 		if int(req.payment_option) == PaymentOptions.COIN:
-			rospy.logdebug('Coin has selected for payment.')
+			rospy.loginfo('Coin has selected for payment.')
 			
 			rospy.loginfo('You have ' + str(MAX_COIN_WAIT_TIME) + ' seconds to insert coins!')
 			
@@ -227,7 +227,7 @@ def handle_payment(req, coin_counter, paypal_acc):
 			return coin_counter.coin_sum, '', ''
 		
 		elif int(req.payment_option) == PaymentOptions.PAYPAL:
-			rospy.logdebug('PayPal has selected for payment.')
+			rospy.loginfo('PayPal has selected for payment.')
 			rospy.loginfo('You have ' + str(MAX_PAYPAL_WAIT_TIME) + ' seconds to pay with PayPal!')
 			
 			# Calculating price as Euros and Cents.
