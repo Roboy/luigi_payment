@@ -13,6 +13,7 @@ Luigi Payment System is a sub-module of Luigi project. It accepts coins and PayP
 	   * [Payment Server](#Payment-Server)
 	   * [Mock Client](#Mock-Client)
 	   * [Node-RED Dashboard](#Node-RED-Dashboard)
+   * [Screenshots](#Screenshots)
 <!--te-->
 
 ## Requirements
@@ -30,11 +31,12 @@ The system requires both software and hardware elements. The payment system runs
 
 ## Installation & Hardware Setup
 1. Clone or download luigi_payment repository `git clone https://github.com/Roboy/luigi_payment.git`
-2. Make sure that everything is connected according to circuit scheme below.
-![Payment Circuit Scheme](https://github.com/Roboy/luigi_payment/blob/master/img/circuit_connections.png "Payment Circuit Scheme")
+2. Make sure that everything is connected according to circuit scheme, see below.
 3. Edit `src/server.py` accordingly (See [Payment Server](#Payment-Server)).
 4. Change `httpStatic` to local luigi_payment copy (See [Node-RED Dashboard](#Node-RED-Dashboard)) to show image in user interface.
 5. Import `/node-red-payment-ui/flows.json` and deploy it (See [Node-RED Dashboard](#Node-RED-Dashboard)).
+
+<img src="images/circuit_connection.png">
 
 > For very detailed information about how to setup please visit [How to Set-up and Start Payment System page](https://devanthro.atlassian.net/wiki/spaces/SS19/pages/534249648/How+to+Set-up+and+Start+Payment+System).
 
@@ -52,7 +54,7 @@ After these steps payment service should be up and running. Type `rosservice lis
 In this section, you can find explanations of the scripts and other files.
 
 ### Flowchart
-![Payment Flowchart](https://github.com/Roboy/luigi_payment/blob/master/img/payment_flowchart.png "Payment Flowchart")
+<img src="images/payment_flowchart.png">
 
 ### Payment Server
 `src/server.py` handles two payment methods which are coins and PayPal and it supports English and German for PayPal payments.
@@ -85,7 +87,13 @@ You need to start Node-RED via `node-red` and get device's IP to show it on othe
 > If there are other flows deployed on your system, consider deleting them.
 > You can access the dashboard from any device on the same network by browing `SERVER_IP:1880/ui`.
 
-To show image on tablet please change `httpStatic` to point `luigi_payment/img` folder. The file should be located in `/home/pi/.node-red/settings.js` file.
-E.g. `httpStatic: 'LOCAL_PATH/luigi_payment/img/',`
+To show image on tablet please change `httpStatic` to point `luigi_payment/images` folder. The file should be located in `/home/pi/.node-red/settings.js` file.
+E.g. `httpStatic: 'LOCAL_PATH/luigi_payment/images/',`
 
 > There must be comma at the end.
+
+### Screenshots
+
+|             Default View            	|            Coin Method           	| PayPal Method                      	|
+|:-----------------------------------:	|:--------------------------------:	|------------------------------------	|
+| <img src="images/default_view.png"> 	| <img src="images/coin_view.png"> 	| <img src="images/paypal_view.png"> 	|
