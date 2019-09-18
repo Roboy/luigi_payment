@@ -1,3 +1,4 @@
+
 # Payment System of Luigi
 Luigi Payment System is a sub-module of Luigi project. It accepts coins and PayPal for payment. This repository includes the payment server, a mock client and Node-RED dashboard for interaction with customer.
 
@@ -32,9 +33,9 @@ The system requires both software and hardware elements. The payment system runs
 ## Installation & Hardware Setup
 1. Clone or download luigi_payment repository `git clone https://github.com/Roboy/luigi_payment.git`
 2. Make sure that everything is connected according to circuit scheme, see below.
-3. Edit `src/server.py` accordingly (See [Payment Server](#Payment-Server)).
+3. Edit `luigi_payment/src/server.py` accordingly (See [Payment Server](#Payment-Server)).
 4. Change `httpStatic` to local luigi_payment copy (See [Node-RED Dashboard](#Node-RED-Dashboard)) to show image in user interface.
-5. Import `/node-red-payment-ui/flows.json` and deploy it (See [Node-RED Dashboard](#Node-RED-Dashboard)).
+5. Import `luigi_payment/node-red-payment-ui/flows.json` and deploy it (See [Node-RED Dashboard](#Node-RED-Dashboard)).
 
 <img src="images/circuit_connection.png">
 
@@ -57,13 +58,13 @@ In this section, you can find explanations of the scripts and other files.
 <img src="images/payment_flowchart.png">
 
 ### Payment Server
-`src/server.py` handles two payment methods which are coins and PayPal and it supports English and German for PayPal payments.
-In order to run it, start `roscore`, `node-red` and then start `server.py` via `python server.py`
+`luigi_payment/src/server.py` handles two payment methods which are coins and PayPal and it supports English and German for PayPal payments.
+In order to run it, start `roscore`, `node-red` and then start `server.py` via `python luigi_payment/src/server.py`
 
-* The scripts expect `credentials.txt` file on the same folder which is `src`.
+* The scripts expect `credentials.txt` file on the same folder which is `luigi_payment/src`.
 	* 1st line should be e-mail address.
 	* 2nd line should be your e-mail password.
-* You can change the following lines in `src/server.py` to fit your needs.
+* You can change the following lines in `luigi_payment/src/server.py` to fit your needs.
 
 ```python
 MAX_COIN_WAIT_TIME = 60 # in seconds
@@ -78,12 +79,12 @@ PAYPAL_LANGUAGE = 'DE' # DE or EN
 > PayPal URL should be paypal.me URL.
 
 ### Mock Client
-`src/client.py` is going to mock Luigi's payment service call indefinitely with changing payment options.
+`luigi_payment/src/client.py` is going to mock Luigi's payment service call indefinitely with changing payment options.
 
 ### Node-RED Dashboard
 Payment interface can be shown from any device that is connected to the same network which Raspberry Pi is connected to.
 You need to start Node-RED via `node-red` and get device's IP to show it on other devices such as tablet.
-> Don't forget to import `flows.json` which is under `/node-red-payment-ui` and deploy it after browsing to `127.0.0.1:1880`.
+> Don't forget to import `flows.json` which is under `luigi_payment/node-red-payment-ui` and deploy it after browsing to `127.0.0.1:1880`.
 > If there are other flows deployed on your system, consider deleting them.
 > You can access the dashboard from any device on the same network by browing `SERVER_IP:1880/ui`.
 
