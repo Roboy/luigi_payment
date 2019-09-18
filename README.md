@@ -6,7 +6,7 @@ Luigi Payment System is a sub-module of Luigi project. It accepts coins and PayP
    * [Requirements](#Requirements)
 	   * [Hardware Requirements](#Hardware-Requirements)
 	   * [Software Requirements](#Software-Requirements)
-   * [Installation & Hardware Setup](#Installation---Hardware-Setup)
+   * [Installation & Hardware Setup](#Installation--Hardware-Setup)
    * [Usage](#Usage)
    * [Detailed Information](#Detailed-Information)
 	   * [Flowchart](#Flowchart)
