@@ -6,9 +6,10 @@ Luigi Payment System is a sub-module of Luigi project. It accepts coins and PayP
    * [Requirements](#Requirements)
 	   * [Hardware Requirements](#Hardware-Requirements)
 	   * [Software Requirements](#Software-Requirements)
-   * [Installation & Hardware Setup](#Installation-&-Hardware-Setup)
+   * [Installation & Hardware Setup](#Installation---Hardware-Setup)
    * [Usage](#Usage)
    * [Detailed Information](#Detailed-Information)
+	   * [Flowchart](#Flowchart)
 	   * [Payment Server](#Payment-Server)
 	   * [Mock Client](#Mock-Client)
 	   * [Node-RED Dashboard](#Node-RED-Dashboard)
@@ -50,6 +51,8 @@ After these steps payment service should be up and running. Type `rosservice lis
 ## Detailed Information
 In this section, you can find explanations of the scripts and other files.
 
+### Flowchart
+![Payment Flowchart](https://github.com/Roboy/luigi_payment/blob/master/img/payment_flowchart.png "Payment Flowchart")
 
 ### Payment Server
 `src/server.py` handles two payment methods which are coins and PayPal and it supports English and German for PayPal payments.
