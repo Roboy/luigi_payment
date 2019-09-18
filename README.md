@@ -95,6 +95,6 @@ E.g. `httpStatic: 'LOCAL_PATH/luigi_payment/images/',`
 
 ### Screenshots
 
-|             Default View            	|            Coin Method           	| PayPal Method                      	|
-|:-----------------------------------:	|:--------------------------------:	|------------------------------------	|
+|             Default View            	|            Coin Method           	|            PayPal Method           	|
+|:-----------------------------------:	|:--------------------------------:	|:----------------------------------:	|
 | <img src="images/default_view.png"> 	| <img src="images/coin_view.png"> 	| <img src="images/paypal_view.png"> 	|
