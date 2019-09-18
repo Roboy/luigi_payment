@@ -48,7 +48,8 @@ The system requires both software and hardware elements. The payment system runs
 ## Usage
 1. Start ROS `roscore`
 2. Start Node-RED `node-red`
-3. Start payment service `python luigi_payment/src/server.py`
+3. Create `credentials.txt` in `luigi_payment/src` folder and put your e-mail on the 1st line, your password on the 2nd line.
+4. Start payment service `python luigi_payment/src/server.py`
 
 After these steps payment service should be up and running. Type `rosservice list` and search for `payment_server`.
 > You can see Node-RED interface from any device that is connected to the same network which Raspberry Pi is connected to.
