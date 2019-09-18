@@ -1,5 +1,3 @@
-
-
 # Payment System of Luigi
 Luigi Payment System is a sub-module of Luigi project. It accepts coins and PayPal for payment. This repository includes the payment server, a mock client and Node-RED dashboard for interaction with customer.
 
@@ -30,6 +28,8 @@ The system requires both software and hardware elements. The payment system runs
 
 ### Software Requirements
 * [ROS Melodic](http://wiki.ros.org/melodic)
+* [Node-RED](https://nodered.org/)
+	* [node-red-dashboard](https://flows.nodered.org/node/node-red-dashboard)
 * [Roboy Communication](https://github.com/Roboy/roboy_communication)
 * Python packages
 	* To install required python packages please run `pip install -r requirements.txt`
