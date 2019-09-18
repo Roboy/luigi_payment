@@ -1,4 +1,5 @@
 
+
 # Payment System of Luigi
 Luigi Payment System is a sub-module of Luigi project. It accepts coins and PayPal for payment. This repository includes the payment server, a mock client and Node-RED dashboard for interaction with customer.
 
@@ -14,11 +15,14 @@ Luigi Payment System is a sub-module of Luigi project. It accepts coins and PayP
 	   * [Payment Server](#Payment-Server)
 	   * [Mock Client](#Mock-Client)
 	   * [Node-RED Dashboard](#Node-RED-Dashboard)
+		   * [Import and Deploy Flow](#Import-and-Deploy-Flow)
+		   * [Setup httpStatic](Setup-httpStatic)
+		   * [Show UI](Show-UI)
    * [Screenshots](#Screenshots)
 <!--te-->
 
 ## Requirements
-The system requires both software and hardware elements. The payment system runs on Raspberry Pi and counts coins via a coin counter and communicates with other Luigi modules via ROS.
+The system requires both software and hardware elements. The payment system runs on Raspberry Pi, counts coins via a coin counter, polls PayPal e-mail to check whether payment received and communicates with other Luigi modules via ROS.
 
 ### Hardware Requirements
 * Raspberry Pi 3B
@@ -34,12 +38,12 @@ The system requires both software and hardware elements. The payment system runs
 1. Clone or download luigi_payment repository `git clone https://github.com/Roboy/luigi_payment.git`
 2. Make sure that everything is connected according to circuit scheme, see below.
 3. Edit `luigi_payment/src/server.py` accordingly (See [Payment Server](#Payment-Server)).
-4. Change `httpStatic` to local luigi_payment copy (See [Node-RED Dashboard](#Node-RED-Dashboard)) to show image in user interface.
-5. Import `luigi_payment/node-red-payment-ui/flows.json` and deploy it (See [Node-RED Dashboard](#Node-RED-Dashboard)).
+4. Change `httpStatic` to local luigi_payment (See [Setup httpStatic](#Setup-httpStatic)) to show image in user interface.
+5. Import `luigi_payment/node-red-payment-ui/flows.json` and deploy it (See [Import and Deploy Flow](#Import-and-Deploy-Flow)).
 
 <img src="images/circuit_connection.png">
 
-> For very detailed information about how to setup please visit [How to Set-up and Start Payment System page](https://devanthro.atlassian.net/wiki/spaces/SS19/pages/534249648/How+to+Set-up+and+Start+Payment+System).
+**For very detailed information about how to setup please visit [How to Set-up and Start Payment System page](https://devanthro.atlassian.net/wiki/spaces/SS19/pages/534249648/How+to+Set-up+and+Start+Payment+System).**
 
 ## Usage
 1. Start ROS `roscore`
@@ -47,7 +51,6 @@ The system requires both software and hardware elements. The payment system runs
 3. Start payment service `python luigi_payment/src/server.py`
 
 After these steps payment service should be up and running. Type `rosservice list` and search for `payment_server`.
-
 > You can see Node-RED interface from any device that is connected to the same network which Raspberry Pi is connected to.
 > Open a browser and go to `RASPBERRY_PI_IP:1880/ui`.
 
@@ -84,14 +87,18 @@ PAYPAL_LANGUAGE = 'DE' # DE or EN
 ### Node-RED Dashboard
 Payment interface can be shown from any device that is connected to the same network which Raspberry Pi is connected to.
 You need to start Node-RED via `node-red` and get device's IP to show it on other devices such as tablet.
-> Don't forget to import `flows.json` which is under `luigi_payment/node-red-payment-ui` and deploy it after browsing to `127.0.0.1:1880`.
-> If there are other flows deployed on your system, consider deleting them.
-> You can access the dashboard from any device on the same network by browing `SERVER_IP:1880/ui`.
 
+#### Import and Deploy Flow
+Import `flows.json` which is under `luigi_payment/node-red-payment-ui` and deploy it after browsing to `127.0.0.1:1880`.
+> If there are other flows deployed on your system, consider deleting them.
+
+#### Setup httpStatic
 To show image on tablet please change `httpStatic` to point `luigi_payment/images` folder. The file should be located in `/home/pi/.node-red/settings.js` file.
 E.g. `httpStatic: 'LOCAL_PATH/luigi_payment/images/',`
-
 > There must be comma at the end.
+
+#### Show UI
+You can access the dashboard from any device on the same network by browing `RASPBERRY_PI_IP:1880/ui`.
 
 ### Screenshots
 
